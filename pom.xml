@@ -7,6 +7,7 @@
     <groupId>com.firstLine</groupId>
     <artifactId>schedulingApplication</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
     <build>
         <plugins>
             <plugin>
@@ -15,6 +16,16 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <!--
+                    Exclude servlet API since it is already in Tomcat
+                  -->
+                    <packagingExcludes>WEB-INF/lib/servlet-api-*.jar</packagingExcludes>
                 </configuration>
             </plugin>
         </plugins>
@@ -85,6 +96,12 @@
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring4</artifactId>
             <version>3.0.9.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
         </dependency>
 
     </dependencies>

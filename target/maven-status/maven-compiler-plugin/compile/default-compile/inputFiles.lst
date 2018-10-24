@@ -1,0 +1,14 @@
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/controller/HelloController.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/AppInitializer.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/service/StudyService.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/domain/enums/Status.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/repos/StudyRepository.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/repos/PatientRepository.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/configs/WebConfig.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/controller/PatientController.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/domain/Doctor.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/service/PatientService.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/domain/Room.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/domain/Patient.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/domain/Study.java
+/home/aleksandr/IdeaProjects/schedulingApplication/src/main/java/com/firstline/procedureScheduling/domain/enums/Sex.java
