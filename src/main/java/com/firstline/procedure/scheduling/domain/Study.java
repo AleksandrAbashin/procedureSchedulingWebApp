@@ -15,9 +15,9 @@ public class Study {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long studyId;
 
-    @Column(name = "patient",nullable=false)
+   /* @Column(name = "patient",nullable=false)
     @ManyToMany
-    Patient patient;
+    Patient patient;*/
 
     @Column(name = "study_status",nullable=false)
     Status status;

@@ -24,7 +24,7 @@ public class Patient {
     @Column(name = "day_of_birth")
     LocalDateTime patientDateBirth;
 
-    @OneToMany
-    List<Study> listStudy;
+//    @OneToMany
+//    List<Study> listStudy;
 
 }
