@@ -1,7 +1,10 @@
 package com.firstline.procedure.scheduling.service;
 
-import org.springframework.stereotype.Service;
+import com.firstline.procedure.scheduling.dto.PatientDto;
 
-@Service
-public class PatientService {
+public interface PatientService {
+
+        public PatientDto createPatient(PatientDto patientDto);
+        public PatientDto updatePatient(PatientDto patientDto);
+        public PatientDto deletePatient(Long id);
 }

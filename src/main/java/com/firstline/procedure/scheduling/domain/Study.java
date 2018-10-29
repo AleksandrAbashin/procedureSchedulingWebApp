@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -12,20 +13,25 @@ import java.time.LocalDateTime;
 public class Study {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long studyId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long studyId;
 
-   /* @Column(name = "patient",nullable=false)
-    @ManyToMany
-    Patient patient;*/
+    @Column(name = "description")
+    private  String description;
 
     @Column(name = "study_status",nullable=false)
-    Status status;
+    private Status status;
 
     @Column(name = "planned_start_time",nullable=false)
-    LocalDateTime plannedStartTime;
+    private LocalDateTime plannedStartTime;
 
     @Column(name = "estimated_end_time")
-    LocalDateTime estimatedEndTime;
+    private LocalDateTime estimatedEndTime;
+
+    @Column(name = "patient",nullable=false)
+    @ManyToMany
+    @JoinTable(name = "patient_study", joinColumns = @JoinColumn(name = "patient_id"),
+            inverseJoinColumns = @JoinColumn(name = "study_id"))
+    private List<Patient> patients;
 
 }

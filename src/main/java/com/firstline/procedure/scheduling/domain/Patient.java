@@ -12,19 +12,19 @@ import java.util.List;
 @Table(name = "patients")
 public class Patient {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long patientId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long patientId;
 
     @Column(name = "patient_name",nullable=false)
-    String patientName;
+    private String patientName;
 
     @Column(name = "patient_sex")
-    Sex patientSex;
+    private Sex patientSex;
 
     @Column(name = "day_of_birth")
-    LocalDateTime patientDateBirth;
+    private LocalDateTime patientDateBirth;
 
-//    @OneToMany
-//    List<Study> listStudy;
+    @ManyToMany(mappedBy = "patients")
+    private List<Study> studies;
 
 }

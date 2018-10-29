@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .container {
+            width: 120px;
+            clear: both;
+        }
+
+        .container input {
+            width: 100%;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<h1>Add new patients</h1>
+<!--/*@thymesVar id="patientDto" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
+<form action="#" th:action="@{/patient}" th:object="${patientDto}" method="post">
+    <div class ="container">
+        <label>Patient name:</label>
+        <input type="text"  th:field="*{patientName}"><br>
+        <label>Patient sex:</label>
+        <input type="text"  th:field="*{patientSex}"><br>
+        <label>Patient date birth:</label>
+        <input type="date"  th:field="*{patientDateBirth}"><br>
+
+
+        <br>    <button type="submit" >create patient</button></br>
+    </div>
+</form>
+
+</body>

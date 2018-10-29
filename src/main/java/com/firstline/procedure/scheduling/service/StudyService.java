@@ -1,12 +1,12 @@
 package com.firstline.procedure.scheduling.service;
 
 
-import com.firstline.procedure.scheduling.domain.Study;
+import com.firstline.procedure.scheduling.dto.StudyDto;
 
 public interface StudyService {
 
-    public void createStudy(Study study);
-    public void updateStudy(Study study);
-    public void deleteStudy(Study study);
+    public void createStudy(StudyDto studyDto);
+    public void updateStudy(StudyDto studyDto);
+    public void deleteStudy(StudyDto studyDto);
 }
 

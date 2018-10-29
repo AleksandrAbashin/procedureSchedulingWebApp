@@ -1,30 +1,29 @@
 package com.firstline.procedure.scheduling.service.impl;
 
+import com.firstline.procedure.scheduling.dto.StudyDto;
 import com.firstline.procedure.scheduling.repos.StudyRepository;
 import com.firstline.procedure.scheduling.service.StudyService;
-import com.firstline.procedure.scheduling.domain.Study;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
-class StudyServiceImp implements StudyService {
+public class StudyServiceImp implements StudyService {
 
-    private final StudyRepository studyRepository;
+    @Autowired
+    private StudyRepository studyRepository;
 
     @Override
-    public void createStudy(Study study) {
-        studyRepository.save(study);
+    public void createStudy(StudyDto studyDto) {
 
     }
 
     @Override
-    public void updateStudy(Study study) {
+    public void updateStudy(StudyDto studyDto) {
 
     }
 
     @Override
-    public void deleteStudy(Study study) {
+    public void deleteStudy(StudyDto studyDto) {
 
     }
 }
