@@ -17,18 +17,22 @@
 </head>
 <body>
 <h1>Study create</h1>
-<!--/*@thymesVar id="StudyDto" type="com.firstline.procedure.scheduling.dto.StudyDto"*/-->
-<form action="#" th:action="@{/study}" th:object="${StudyDto}" method="post">
+<!--/*@thymesVar id="studyDto" type="com.firstline.procedure.scheduling.dto.StudyDto"*/-->
+<form action="#" th:action="@{/study}" th:object="${studyDto}" method="post">
     <div class ="container">
-        <label>Patient name:</label>
+        <label>Patient id:</label>
+        <input type="text"  th:field="*{patientId}"><br>
+        <label>Description:</label>
+        <input type="text"  th:field="*{description}"><br>
+        <label>Status:</label>
         <input type="text"  th:field="*{status}"><br>
-        <label>Patient sex:</label>
+        <label>Planned start time:</label>
         <input type="date"  th:field="*{plannedStartTime}"><br>
-        <label>Patient date birth:</label>
+        <label>Estimated end time:</label>
         <input type="date"  th:field="*{estimatedEndTime}"><br>
 
 
-        <br>    <button type="submit" >create patient</button></br>
+        <br>    <button type="submit" >start study!</button></br>
     </div>
 </form>
 

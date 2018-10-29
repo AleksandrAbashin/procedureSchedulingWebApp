@@ -5,8 +5,8 @@ import com.firstline.procedure.scheduling.dto.StudyDto;
 
 public interface StudyService {
 
-    public void createStudy(StudyDto studyDto);
-    public void updateStudy(StudyDto studyDto);
-    public void deleteStudy(StudyDto studyDto);
+    public StudyDto createStudy(StudyDto studyDto);
+    public StudyDto updateStudy(StudyDto studyDto);
+    public void deleteStudy(Long id);
 }
 

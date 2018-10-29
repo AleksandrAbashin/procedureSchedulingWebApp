@@ -1,6 +1,8 @@
 package com.firstline.procedure.scheduling.service.impl;
 
+import com.firstline.procedure.scheduling.domain.Study;
 import com.firstline.procedure.scheduling.dto.StudyDto;
+import com.firstline.procedure.scheduling.mapper.StudyMapper;
 import com.firstline.procedure.scheduling.repos.StudyRepository;
 import com.firstline.procedure.scheduling.service.StudyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +14,24 @@ public class StudyServiceImp implements StudyService {
     @Autowired
     private StudyRepository studyRepository;
 
-    @Override
-    public void createStudy(StudyDto studyDto) {
+    @Autowired
+    private StudyMapper studyMapper;
 
+    @Override
+    public StudyDto createStudy(StudyDto studyDto) {
+        Study study = studyMapper.toStudy(studyDto);
+        studyRepository.save(study);
+
+        return studyMapper.fromStudy(study);
     }
 
     @Override
-    public void updateStudy(StudyDto studyDto) {
-
+    public StudyDto updateStudy(StudyDto studyDto) {
+        return null;
     }
 
     @Override
-    public void deleteStudy(StudyDto studyDto) {
+    public void deleteStudy(Long id) {
 
     }
 }

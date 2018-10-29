@@ -1,14 +1,12 @@
 package com.firstline.procedure.scheduling.domain;
 
 import com.firstline.procedure.scheduling.domain.enums.Sex;
-import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name = "patients")
 public class Patient {
     @Id
@@ -22,9 +20,52 @@ public class Patient {
     private Sex patientSex;
 
     @Column(name = "day_of_birth")
-    private LocalDateTime patientDateBirth;
+    private LocalDate patientDateBirth;
 
-    @ManyToMany(mappedBy = "patients")
+    @OneToMany(mappedBy = "patient",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL
+    )
     private List<Study> studies;
+
+    public Patient() {
+    }
+
+    public List<Study> getStudies() {
+        return studies;
+    }
+
+    public void setStudies(List<Study> studies) {
+        this.studies = studies;
+    }
+
+    public Long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(Long patientId) {
+        this.patientId = patientId;
+    }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public Sex getPatientSex() {
+        return patientSex;
+    }
+
+    public void setPatientSex(Sex patientSex) {
+        this.patientSex = patientSex;
+    }
+
+    public void setPatientDateBirth(LocalDate patientDateBirth) {
+        this.patientDateBirth = patientDateBirth;
+    }
+
 
 }

@@ -1,17 +1,13 @@
 package com.firstline.procedure.scheduling.domain;
 
 import com.firstline.procedure.scheduling.domain.enums.Status;
-import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
-@Data
 @Table(name = "studies")
 public class Study {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studyId;
@@ -28,10 +24,59 @@ public class Study {
     @Column(name = "estimated_end_time")
     private LocalDateTime estimatedEndTime;
 
-    @Column(name = "patient",nullable=false)
-    @ManyToMany
-    @JoinTable(name = "patient_study", joinColumns = @JoinColumn(name = "patient_id"),
-            inverseJoinColumns = @JoinColumn(name = "study_id"))
-    private List<Patient> patients;
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 
+    public Study() {
+
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Long getStudyId() {
+        return studyId;
+    }
+
+    public void setStudyId(Long studyId) {
+        this.studyId = studyId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getPlannedStartTime() {
+        return plannedStartTime;
+    }
+
+    public void setPlannedStartTime(LocalDateTime plannedStartTime) {
+        this.plannedStartTime = plannedStartTime;
+    }
+
+    public LocalDateTime getEstimatedEndTime() {
+        return estimatedEndTime;
+    }
+
+    public void setEstimatedEndTime(LocalDateTime estimatedEndTime) {
+        this.estimatedEndTime = estimatedEndTime;
+    }
 }
