@@ -1,20 +1,27 @@
 package com.firstline.procedure.scheduling.dto;
 
-import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+
+import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 
 
 public class StudyDto {
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long studyId;
 
     private  String description;
 
     private String status;
 
+    @DateTimeFormat(iso = DATE)
+    private LocalDate plannedStartTime;
 
-    private LocalDateTime plannedStartTime;
-
-    private LocalDateTime estimatedEndTime;
+    @DateTimeFormat(iso = DATE)
+    private LocalDate estimatedEndTime;
 
     private Long patientId;
 
@@ -27,7 +34,7 @@ public class StudyDto {
     }
 
     public StudyDto() {
-      ;
+
     }
 
     public Long getStudyId() {
@@ -56,21 +63,19 @@ public class StudyDto {
         this.status = status;
     }
 
-    public LocalDateTime getPlannedStartTime() {
+    public LocalDate getPlannedStartTime() {
         return plannedStartTime;
     }
 
-    public void setPlannedStartTime(LocalDateTime plannedStartTime) {
+    public void setPlannedStartTime(LocalDate plannedStartTime) {
         this.plannedStartTime = plannedStartTime;
     }
 
-    public LocalDateTime getEstimatedEndTime() {
+    public LocalDate getEstimatedEndTime() {
         return estimatedEndTime;
     }
 
-    public void setEstimatedEndTime(LocalDateTime estimatedEndTime) {
+    public void setEstimatedEndTime(LocalDate estimatedEndTime) {
         this.estimatedEndTime = estimatedEndTime;
     }
-
-
 }

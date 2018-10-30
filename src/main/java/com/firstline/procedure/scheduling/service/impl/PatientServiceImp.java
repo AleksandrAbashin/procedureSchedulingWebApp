@@ -7,6 +7,9 @@ import com.firstline.procedure.scheduling.repos.PatientRepository;
 import com.firstline.procedure.scheduling.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class PatientServiceImp implements PatientService {
@@ -36,4 +39,12 @@ return new PatientDto();
         patientRepository.deleteById(id);
         return new  PatientDto();
     }
+
+    @Override
+    @Transactional
+    public List<PatientDto> getAllPatients() {
+        return   patientMapper.fromListPatient(patientRepository.findAll());
+    }
+
+
 }

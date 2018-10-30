@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .container {
+            width: 160px;
+            clear: both;
+        }
+
+        .container input {
+            width: 100%;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<h1>Study create or update</h1>
+<!--/*@thymesVar id="studyDto" type="com.firstline.procedure.scheduling.dto.StudyDto"*/-->
+<form action="#" th:action="@{/study/update}" th:object="${studyDto}" method="put">
+    <div class ="container">
+        <label>Patient id:</label>
+        <input type="text"  th:field="*{patientId}"><br>
+        <label>Study id:</label>
+        <input type="text"  th:field="*{studyId}"><br>
+        <label>Description:</label>
+        <input type="text"  th:field="*{description}"><br>
+        <label>Status:</label>
+        <select th:field="*{status}">
+            <option th:value="'PLANNED'" th:text="Planned"></option>
+            <option th:value="'IN_PROGRESS'" th:text="In_progress"></option>
+            <option th:value="'FINISHED'" th:text="Finished"></option>
+        </select>
+        <!--  <input type="text"  th:field="*{status}"><br>-->
+        <label>Planned start time:</label>
+        <input type="date"  th:field="*{plannedStartTime}"><br>
+        <label>Estimated end time:</label>
+        <input type="date"  th:field="*{estimatedEndTime}"><br>
+
+
+        <br>    <button type="submit" >start study!</button></br>
+    </div>
+</form>
+<a th:href="@{/main}">return to main page</a>
+</body>

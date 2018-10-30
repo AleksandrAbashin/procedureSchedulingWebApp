@@ -3,7 +3,7 @@ package com.firstline.procedure.scheduling.domain;
 import com.firstline.procedure.scheduling.domain.enums.Status;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "studies")
@@ -15,14 +15,15 @@ public class Study {
     @Column(name = "description")
     private  String description;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "study_status",nullable=false)
     private Status status;
 
     @Column(name = "planned_start_time",nullable=false)
-    private LocalDateTime plannedStartTime;
+    private LocalDate plannedStartTime;
 
     @Column(name = "estimated_end_time")
-    private LocalDateTime estimatedEndTime;
+    private LocalDate estimatedEndTime;
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
@@ -30,6 +31,14 @@ public class Study {
 
     public Study() {
 
+    }
+
+    public void setPlannedStartTime(LocalDate plannedStartTime) {
+        this.plannedStartTime = plannedStartTime;
+    }
+
+    public void setEstimatedEndTime(LocalDate estimatedEndTime) {
+        this.estimatedEndTime = estimatedEndTime;
     }
 
     public Patient getPatient() {
@@ -64,19 +73,5 @@ public class Study {
         this.status = status;
     }
 
-    public LocalDateTime getPlannedStartTime() {
-        return plannedStartTime;
-    }
 
-    public void setPlannedStartTime(LocalDateTime plannedStartTime) {
-        this.plannedStartTime = plannedStartTime;
-    }
-
-    public LocalDateTime getEstimatedEndTime() {
-        return estimatedEndTime;
-    }
-
-    public void setEstimatedEndTime(LocalDateTime estimatedEndTime) {
-        this.estimatedEndTime = estimatedEndTime;
-    }
 }

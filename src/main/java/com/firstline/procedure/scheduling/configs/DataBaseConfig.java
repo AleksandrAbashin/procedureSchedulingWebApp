@@ -28,7 +28,7 @@ public class DataBaseConfig {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.firstline.procedure.scheduling.domain" });
+        em.setPackagesToScan("com.firstline.procedure.scheduling.domain");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -38,18 +38,18 @@ public class DataBaseConfig {
     }
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost/study_db");
-        dataSource.setUsername( "aleksandr" );
-        dataSource.setPassword( "12345" );
+        dataSource.setUsername("aleksandr");
+        dataSource.setPassword("12345");
         return dataSource;
     }
 
     @Bean
     public PlatformTransactionManager transactionManager(
-            EntityManagerFactory emf){
+            EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
 
@@ -57,15 +57,18 @@ public class DataBaseConfig {
     }
 
     @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-    Properties additionalProperties() {
+    private Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         properties.setProperty(
                 "hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        properties.setProperty("hibernate.show_sql", "true");
+        properties.setProperty("hibernate.format_sql", "true");
+
 
         return properties;
     }

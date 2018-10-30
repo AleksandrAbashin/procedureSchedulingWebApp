@@ -27,11 +27,18 @@ public class StudyServiceImp implements StudyService {
 
     @Override
     public StudyDto updateStudy(StudyDto studyDto) {
-        return null;
+        Study study = studyMapper.toStudy(studyDto);
+        studyRepository.save(study);
+
+        return studyMapper.fromStudy(studyRepository.save(study));
     }
 
     @Override
     public void deleteStudy(Long id) {
 
+    }
+
+    public StudyDto getStudyById(Long id) {
+        return studyMapper.fromStudy(studyRepository.getByStudyId(id));
     }
 }

@@ -1,6 +1,12 @@
 package com.firstline.procedure.scheduling.dto;
 
 public class DoctorDto {
+
+
+    private Long doctorId;
+
+    private String doctorName;
+
     public Long getDoctorId() {
         return doctorId;
     }
@@ -16,8 +22,4 @@ public class DoctorDto {
     public void setDoctorName(String doctorName) {
         this.doctorName = doctorName;
     }
-
-    private Long doctorId;
-
-    private String doctorName;
 }

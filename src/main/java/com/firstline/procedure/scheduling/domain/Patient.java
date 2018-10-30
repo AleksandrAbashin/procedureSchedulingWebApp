@@ -1,5 +1,6 @@
 package com.firstline.procedure.scheduling.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.firstline.procedure.scheduling.domain.enums.Sex;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Patient {
     @Column(name = "patient_name",nullable=false)
     private String patientName;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "patient_sex")
     private Sex patientSex;
 
@@ -26,6 +28,7 @@ public class Patient {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
     )
+    @JsonInclude
     private List<Study> studies;
 
     public Patient() {

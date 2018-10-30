@@ -18,7 +18,7 @@ public class HelloController {
     @Autowired
     StudyService studyService;
 
-    @GetMapping("/home")
+    @GetMapping("/main")
     public ModelAndView greeting(
             @RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         ModelAndView mv = new ModelAndView("main");

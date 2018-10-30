@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
         .container {
-            width: 120px;
+            width: 160px;
             clear: both;
         }
 
@@ -23,12 +23,16 @@
         <label>Patient name:</label>
         <input type="text"  th:field="*{patientName}"><br>
         <label>Patient sex:</label>
-        <input type="text"  th:field="*{patientSex}"><br>
+        <select th:field="*{patientSex}">
+            <option th:value="'MALE'" th:text="Male"></option>
+            <option th:value="'FEMALE'" th:text="Female"></option>
+        </select>
+       <!-- <input type="text"  th:field="*{patientSex}"><br>-->
         <label>Patient date birth:</label>
         <input type="date"  th:field="*{patientDateBirth}"><br>
 
         <br>    <button type="submit" >create patient!</button></br>
     </div>
 </form>
-
+<a th:href="@{/main}">return to main page</a>
 </body>
