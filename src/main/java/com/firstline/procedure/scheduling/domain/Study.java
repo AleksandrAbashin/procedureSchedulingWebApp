@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Study {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long studyId;
+    private Long id;
 
     @Column(name = "description")
     private  String description;
@@ -33,28 +33,12 @@ public class Study {
 
     }
 
-    public void setPlannedStartTime(LocalDate plannedStartTime) {
-        this.plannedStartTime = plannedStartTime;
+    public Long getId() {
+        return id;
     }
 
-    public void setEstimatedEndTime(LocalDate estimatedEndTime) {
-        this.estimatedEndTime = estimatedEndTime;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Long getStudyId() {
-        return studyId;
-    }
-
-    public void setStudyId(Long studyId) {
-        this.studyId = studyId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -73,5 +57,27 @@ public class Study {
         this.status = status;
     }
 
+    public LocalDate getPlannedStartTime() {
+        return plannedStartTime;
+    }
 
+    public void setPlannedStartTime(LocalDate plannedStartTime) {
+        this.plannedStartTime = plannedStartTime;
+    }
+
+    public LocalDate getEstimatedEndTime() {
+        return estimatedEndTime;
+    }
+
+    public void setEstimatedEndTime(LocalDate estimatedEndTime) {
+        this.estimatedEndTime = estimatedEndTime;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 }

@@ -69,7 +69,6 @@ public class DataBaseConfig {
         properties.setProperty("hibernate.show_sql", "true");
         properties.setProperty("hibernate.format_sql", "true");
 
-
         return properties;
     }
 }

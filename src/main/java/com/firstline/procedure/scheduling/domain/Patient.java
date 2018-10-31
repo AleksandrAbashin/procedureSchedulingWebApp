@@ -1,6 +1,5 @@
 package com.firstline.procedure.scheduling.domain;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.firstline.procedure.scheduling.domain.enums.Sex;
 
 import javax.persistence.*;
@@ -12,7 +11,7 @@ import java.util.List;
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long patientId;
+    private Long id;
 
     @Column(name = "patient_name",nullable=false)
     private String patientName;
@@ -28,26 +27,18 @@ public class Patient {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
     )
-    @JsonInclude
+   // @JsonInclude
     private List<Study> studies;
 
     public Patient() {
     }
 
-    public List<Study> getStudies() {
-        return studies;
+    public Long getId() {
+        return id;
     }
 
-    public void setStudies(List<Study> studies) {
-        this.studies = studies;
-    }
-
-    public Long getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(Long patientId) {
-        this.patientId = patientId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPatientName() {
@@ -66,9 +57,19 @@ public class Patient {
         this.patientSex = patientSex;
     }
 
+    public LocalDate getPatientDateBirth() {
+        return patientDateBirth;
+    }
+
     public void setPatientDateBirth(LocalDate patientDateBirth) {
         this.patientDateBirth = patientDateBirth;
     }
 
+    public List<Study> getStudies() {
+        return studies;
+    }
 
+    public void setStudies(List<Study> studies) {
+        this.studies = studies;
+    }
 }

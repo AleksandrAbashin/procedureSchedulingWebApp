@@ -8,8 +8,10 @@ import java.util.List;
 
 
 @Mapper(componentModel = "spring")
-public interface PatientMapper  {
+public interface PatientMapper {
+
     Patient toPatient(PatientDto patientDto);
+
     PatientDto fromPatient(Patient patient);
 
     List<PatientDto> fromListPatient(List<Patient> patients);

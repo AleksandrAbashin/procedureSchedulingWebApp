@@ -46,5 +46,9 @@ return new PatientDto();
         return   patientMapper.fromListPatient(patientRepository.findAll());
     }
 
-
+    @Override
+    @Transactional
+    public PatientDto getPatientById(Long id) {
+        return patientMapper.fromPatient(patientRepository.getOne(id));
+    }
 }

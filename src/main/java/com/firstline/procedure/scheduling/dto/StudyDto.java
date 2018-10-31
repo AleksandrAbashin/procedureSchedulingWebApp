@@ -11,7 +11,7 @@ import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 public class StudyDto {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Long studyId;
+    private Long id;
 
     private  String description;
 
@@ -37,15 +37,13 @@ public class StudyDto {
 
     }
 
-    public Long getStudyId() {
-        return studyId;
+    public Long getId() {
+        return id;
     }
 
-    public void setStudyId(Long studyId) {
-        this.studyId = studyId;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-
 
     public String getDescription() {
         return description;

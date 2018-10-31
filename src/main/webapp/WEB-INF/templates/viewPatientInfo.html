@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>    <h2>Patient Info</h2>
+
+    <p>th:text ="${patientDto.PatientName}"</p>
+    <p>th:text ="${patientDto.patientSex}"</p>
+    <p>th:data ="${patientDto.patientDateBirth}"</p>
+</div>
+<div>    <h2>list studies</h2>
+
+    <table>
+        <tbody>
+
+
+        <!--/*@thymesVar id="studies" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
+        <tr  th:each="studyDto : ${studies}">
+            <td th:text="${studyDto.description}">Description</td>
+            <td th:text="${patientDto.status}">Status</td>
+            <td th:text="${patientDto.plannedStartTime}"></td>
+            <td th:text="${patientDto.estimatedEndTime}"></td>
+            <td><a href="#" th:href="@{/study/update/} + ${patientDto.id}">View</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/patient/list}">return to list patients</a>
+    <br/><br/>
+</div>
+</body>
+</html>

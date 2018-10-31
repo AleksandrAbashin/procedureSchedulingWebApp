@@ -21,7 +21,7 @@
 <form action="#" th:action="@{/study/update}" th:object="${studyDto}" method="put">
     <div class ="container">
         <label>Patient id:</label>
-        <input type="text"  th:field="*{patientId}"><br>
+        <input type="text"  th:field="*{id}"><br>
         <label>Study id:</label>
         <input type="text"  th:field="*{studyId}"><br>
         <label>Description:</label>
@@ -42,5 +42,5 @@
         <br>    <button type="submit" >start study!</button></br>
     </div>
 </form>
-<a th:href="@{/main}">return to main page</a>
+<a th:href="@{/patient/list}">return to list patients</a>
 </body>

@@ -10,27 +10,18 @@
 <div>    <h2>Patients list</h2>
 
     <table>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Posted On</th>
-            <th>Slug</th>
-            <th>Author</th>
-            <th>View</th>
-        </tr>
-        </thead>
         <tbody>
         <!--/*@thymesVar id="patients" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
         <tr  th:each="patientDto : ${patients}">
             <td th:text="${patientDto.patientName}"></td>
             <td th:text="${patientDto.patientSex}"></td>
             <td th:text="${patientDto.patientDateBirth}"></td>
-            <!--<td><a href="#" th:href="@{/updateStudy} + ${patientDto.id}">View</a></td>-->
+            <td><a href="#" th:href="@{/patient/get/} + ${patientDto.id}">View</a></td>
         </tr>
         </tbody>
     </table>
 
-    <a th:href="@{/addPatient}">Add New Patient</a>
+    <a th:href="@{/patient}">Add New Patient</a>
     <br/><br/>
 </div>
 

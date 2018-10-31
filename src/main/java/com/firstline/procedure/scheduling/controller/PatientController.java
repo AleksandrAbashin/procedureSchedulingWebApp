@@ -5,10 +5,7 @@ import com.firstline.procedure.scheduling.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/patient")
@@ -30,16 +27,16 @@ public class PatientController {
     }
 
     @GetMapping("/list")
-    public String list(Model model) {
-         model.addAttribute("patients", patientService.getAllPatients());
+    public String getListPatients(Model model) {
+        model.addAttribute("patients", patientService.getAllPatients());
         return "list";
     }
-/*
-    @DeleteMapping(value = "/patient/delete/{article_id}")
-    public String detelePatient(@PathVariable("article_id") Long patientId) {
-        patientServiceImp.deletePatient(patientId);
-        return "addPatient";
+
+    @GetMapping("/get/{id}")
+    public String getPatient(@PathVariable Long id, @ModelAttribute PatientDto patientDto) {
+        patientDto = patientService.getPatientById(id);
+        //model.addAttribute("patientDto", patientService.getPatientById(id));
+        return "viewPatientInfo";
     }
-*/
 
 }

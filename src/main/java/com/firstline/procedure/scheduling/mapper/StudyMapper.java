@@ -10,10 +10,10 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface StudyMapper {
 
-    @Mapping(source = "patientId", target = "patient.patientId")
+    @Mapping(source = "patientId", target = "patient.id")
     Study toStudy(StudyDto studyDto);
 
-    @Mapping(source = "patient.patientId", target = "patientId")
+    @Mapping(source = "patient.id", target = "patientId")
     StudyDto fromStudy(Study study);
 
     List<StudyDto> fromListStudy(List<Study> studies);

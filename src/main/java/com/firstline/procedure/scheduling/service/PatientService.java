@@ -8,6 +8,8 @@ public interface PatientService {
 
     PatientDto createPatient(PatientDto patientDto);
 
+    PatientDto getPatientById(Long id);
+
     PatientDto updatePatient(PatientDto patientDto);
 
     PatientDto deletePatient(Long id);
