@@ -7,9 +7,9 @@
 </head>
 <body>
 <div>    <h2>Patient Info</h2>
-
-    <p>th:text ="${patientDto.PatientName}"</p>
-    <p>th:text ="${patientDto.patientSex}"</p>
+<table><tr><td th:text ="${patientDto.patientName}"></td></tr></table>
+    <a>th:text ="${patientDto.patientName}"</a>
+    <a>th:text ="${patientDto.patientSex}"</a>
     <p>th:data ="${patientDto.patientDateBirth}"</p>
 </div>
 <div>    <h2>list studies</h2>
@@ -28,6 +28,8 @@
         </tr>
         </tbody>
     </table>
+    <a th:href="@{/study}">New study</a></br>
+    <a th:href="@{/study/update/${}">New study</a></br>
     <a th:href="@{/patient/list}">return to list patients</a>
     <br/><br/>
 </div>
