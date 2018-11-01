@@ -6,30 +6,29 @@
     <title>Title</title>
 </head>
 <body>
-<div>    <h2>Patient Info</h2>
-<table><tr><td th:text ="${patientDto.patientName}"></td></tr></table>
-    <a>th:text ="${patientDto.patientName}"</a>
-    <a>th:text ="${patientDto.patientSex}"</a>
-    <p>th:data ="${patientDto.patientDateBirth}"</p>
+
 </div>
-<div>    <h2>list studies</h2>
+<div><h2>list studies</h2>
 
     <table>
         <tbody>
 
-
-        <!--/*@thymesVar id="studies" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
-        <tr  th:each="studyDto : ${studies}">
-            <td th:text="${studyDto.description}">Description</td>
-            <td th:text="${patientDto.status}">Status</td>
-            <td th:text="${patientDto.plannedStartTime}"></td>
-            <td th:text="${patientDto.estimatedEndTime}"></td>
-            <td><a href="#" th:href="@{/study/update/} + ${patientDto.id}">View</a></td>
+        <!--/*@thymesVar id="studies" type="com.firstline.procedure.scheduling.dto.StudyDto"*/-->
+        <tr th:if="${studies.empty}">
+            <td colspan="2"> No Studies Available </td>
+        </tr>
+        <tr th:each="study : ${studies}">
+            <td th:text="${study.description}">Description</td>
+            <td th:text="${study.status}">Status</td>
+            <td th:text="${study.plannedStartTime}"></td>
+            <td th:text="${study.estimatedEndTime}"></td>
+            <td><a href="#" th:href="@{/study/update/} + ${study.id}">Update study</a></td>
         </tr>
         </tbody>
+
     </table>
     <a th:href="@{/study}">New study</a></br>
-    <a th:href="@{/study/update/${}">New study</a></br>
+    <!--<a th:href="@{/study/update/} + ${study.id}">Update study</a></br>-->
     <a th:href="@{/patient/list}">return to list patients</a>
     <br/><br/>
 </div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
         .container {
             width: 160px;
@@ -19,19 +19,21 @@
 <h1>Add new patients</h1>
 <!--/*@thymesVar id="patientDto" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
 <form action="#" th:action="@{/patient}" th:object="${patientDto}" method="post">
-    <div class ="container">
+    <div class="container">
         <label>Patient name:</label>
-        <input type="text"  th:field="*{patientName}"><br>
+        <input type="text" th:field="*{patientName}"><br>
         <label>Patient sex:</label>
         <select th:field="*{patientSex}">
             <option th:value="'MALE'" th:text="Male"></option>
             <option th:value="'FEMALE'" th:text="Female"></option>
         </select>
-       <!-- <input type="text"  th:field="*{patientSex}"><br>-->
+        <!-- <input type="text"  th:field="*{patientSex}"><br>-->
         <label>Patient date birth:</label>
-        <input type="date"  th:field="*{patientDateBirth}"><br>
+        <input type="date" th:field="*{patientDateBirth}"><br>
 
-        <br>    <button type="submit" >create patient!</button></br>
+        <br>
+        <button type="submit">create patient!</button>
+        </br>
     </div>
 </form>
 <a th:href="@{/patient/list}">return to list patients</a>

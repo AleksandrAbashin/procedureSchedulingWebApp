@@ -1,12 +1,15 @@
 package com.firstline.procedure.scheduling.controller;
 
 import com.firstline.procedure.scheduling.dto.PatientDto;
+import com.firstline.procedure.scheduling.dto.StudyDto;
 import com.firstline.procedure.scheduling.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/patient")
@@ -34,12 +37,13 @@ public class PatientController {
     }
 
     @GetMapping("/get/{id}")
-    public ModelAndView getPatient(@PathVariable Long id) {
+    public ModelAndView getListOfPatient(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView("viewPatientInfo");
 
-        PatientDto patientDto = patientService.getPatientById(id);
 
-        mav.addObject("patientDto", patientService.getPatientById(id));
+        List<StudyDto> studies = patientService.getListStudiesOfPatient(id);
+
+        mav.addObject("studies", studies);
         return mav;
 
     }

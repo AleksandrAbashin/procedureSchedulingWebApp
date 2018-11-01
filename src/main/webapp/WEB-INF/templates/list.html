@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>List Patients</title>
 </head>
 <body>
 
-<div>    <h2>Patients list</h2>
+<div><h2>Patients list</h2>
 
     <table>
         <tbody>
         <!--/*@thymesVar id="patients" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
-        <tr  th:each="patientDto : ${patients}">
+        <tr th:each="patientDto : ${patients}">
             <td th:text="${patientDto.patientName}"></td>
             <td th:text="${patientDto.patientSex}"></td>
             <td th:text="${patientDto.patientDateBirth}"></td>

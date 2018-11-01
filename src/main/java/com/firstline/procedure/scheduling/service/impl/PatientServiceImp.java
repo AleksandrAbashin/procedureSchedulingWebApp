@@ -2,7 +2,9 @@ package com.firstline.procedure.scheduling.service.impl;
 
 import com.firstline.procedure.scheduling.domain.Patient;
 import com.firstline.procedure.scheduling.dto.PatientDto;
+import com.firstline.procedure.scheduling.dto.StudyDto;
 import com.firstline.procedure.scheduling.mapper.PatientMapper;
+import com.firstline.procedure.scheduling.mapper.StudyMapper;
 import com.firstline.procedure.scheduling.repos.PatientRepository;
 import com.firstline.procedure.scheduling.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,14 @@ public class PatientServiceImp implements PatientService {
 
     @Autowired
     PatientMapper patientMapper;
+    @Autowired
+    StudyMapper studyMapper;
+
+    @Override
+    @Transactional
+    public List<StudyDto> getListStudiesOfPatient(Long id) {
+        return studyMapper.fromListStudy(patientRepository.getById(id).getStudies());
+    }
 
     @Override
     public PatientDto createPatient(PatientDto patientDto) {
@@ -31,19 +41,19 @@ public class PatientServiceImp implements PatientService {
 
     @Override
     public PatientDto updatePatient(PatientDto patientDto) {
-return new PatientDto();
+        return new PatientDto();
     }
 
     @Override
     public PatientDto deletePatient(Long id) {
         patientRepository.deleteById(id);
-        return new  PatientDto();
+        return new PatientDto();
     }
 
     @Override
     @Transactional
     public List<PatientDto> getAllPatients() {
-        return   patientMapper.fromListPatient(patientRepository.findAll());
+        return patientMapper.fromListPatient(patientRepository.findAll());
     }
 
     @Override

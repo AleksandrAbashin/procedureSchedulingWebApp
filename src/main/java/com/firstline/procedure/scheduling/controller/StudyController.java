@@ -27,17 +27,13 @@ public class StudyController {
         return "addStudy";
     }
 
-    @PutMapping("/update/{id}")
-    public String updateStudy(@PathVariable Long id, @ModelAttribute StudyDto studyDto) {
+    @GetMapping("/update/{id}")
+    public String updateStudy(@PathVariable Long id, Model model) {
 
-       /* model.addAttribute("studyDto",studyService.getStudyById(id));
-        studyServiceImp.updateStudy(studyDto);*/
-        return "updateStudy";
-    }
+        model.addAttribute("studyDto", studyService.updateStudy(studyService.getStudyById(id)));
 
-    @DeleteMapping(value = "/study/delete/{article_id}")
-    public String deletePatient(@PathVariable("article_id") Long id) {
-       studyService.deleteStudy(id);
+
+        //studyService.updateStudy(studyService.getStudyById(id));
         return "addStudy";
     }
 

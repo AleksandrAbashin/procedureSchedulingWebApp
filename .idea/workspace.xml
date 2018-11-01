@@ -8,8 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83c61b17-de93-49a5-b205-d32457eb7657" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/PatientServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/PatientServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addPatient.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addPatient.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addStudy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addStudy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/updateStudy.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/viewPatientInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/viewPatientInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/firstline/procedure/scheduling/controller/PatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/firstline/procedure/scheduling/controller/PatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/firstline/procedure/scheduling/service/PatientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/firstline/procedure/scheduling/service/PatientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT/WEB-INF/classes/com/firstline/procedure/scheduling/controller/PatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT/WEB-INF/classes/com/firstline/procedure/scheduling/controller/PatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT/WEB-INF/classes/com/firstline/procedure/scheduling/service/PatientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT/WEB-INF/classes/com/firstline/procedure/scheduling/service/PatientService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -82,8 +96,17 @@
       <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addStudy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addStudy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -91,8 +114,8 @@
       <file leaf-file-name="PatientController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="495">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -100,41 +123,29 @@
       <file leaf-file-name="viewPatientInfo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/viewPatientInfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="255">
+              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/HelloController.java">
+      <file leaf-file-name="addPatient.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addPatient.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="140">
+              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudyController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="studies" pinned="false" current-in-tab="false">
-        <entry file="das://77e984d9-a95e-47e2-b416-8f7973f3a5c9/database/study_db/schema/public/table/studies">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-              <column-attributes>
-                <column name="ctid" enabled="false" />
-              </column-attributes>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebMvcConfiguration.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -201,10 +212,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/converter/EnumStatusConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/StudyService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/example.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/viewPatient.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/PatientService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/PatientServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/DataBaseConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/mapper/PatientMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/mapper/StudyMapper.java" />
@@ -212,16 +220,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/dto/StudyDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/repos/StudyRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/HelloController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addPatient.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/updateStudy.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/Patient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/repos/PatientRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addStudy.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/PatientService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/PatientServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addPatient.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/updateStudy.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addStudy.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/viewPatientInfo.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java" />
       </list>
     </option>
   </component>
@@ -287,7 +298,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -321,15 +331,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="scheduling" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="schedulingApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="schedulingApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduling" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="schedulingApplication" type="b2602c69:ProjectViewProjectNode" />
@@ -376,6 +377,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -768,12 +770,13 @@
       <workItem from="1540448410751" duration="34240000" />
       <workItem from="1540790626117" duration="35865000" />
       <workItem from="1540876225329" duration="29415000" />
-      <workItem from="1540964810044" duration="33036000" />
+      <workItem from="1540964810044" duration="34474000" />
+      <workItem from="1541049429173" duration="13356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202760000" />
+    <option name="totallyTimeSpent" value="217554000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -799,25 +802,25 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.30992195" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4057971" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32998884" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.38795987" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" weight="0.3121516" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.3121516" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32998884" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32949308" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.20958751" />
-      <window_info anchor="bottom" id="Database Console" order="9" weight="0.32998884" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19977863" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20199226" />
       <window_info id="Web" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3199554" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Database Console" order="9" weight="0.32998884" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3199554" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -826,10 +829,9 @@
       <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32949308" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.36008918" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32949308" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.32998884" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32026875" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.36008918" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -855,6 +857,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32026875" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28985506" />
     </layout-to-restore>
   </component>
@@ -866,19 +869,31 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/com/firstline/procedure/scheduling/mapper/PatientMapperImpl.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="65" />
+      <option name="time" value="74" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>studyService.updateStudy(studyService.getStudyById(id)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>studyService.updateStudy(studyDto)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>studyService.getStudyById(id)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>patientService.getListStudiesOfPatient(id)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>patientService.getPatientById(id)</expression-string>
         <language-id>JAVA</language-id>
@@ -902,13 +917,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://77e984d9-a95e-47e2-b416-8f7973f3a5c9/database/study_db/schema/public/table/patients">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://77e984d9-a95e-47e2-b416-8f7973f3a5c9/database/study_db/schema/public/table/patients">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -940,9 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1001,16 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/generated-sources/annotations/com/firstline/procedure/scheduling/mapper/PatientMapperImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="52" column="48" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
-          <folding>
-            <element signature="e#2276#2288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/enums/Status.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1022,16 +1017,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/PatientService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1063,13 +1048,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/StudyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/MyWebAppInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1093,11 +1071,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1105,17 +1078,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/PatientServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-          <folding>
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1397#1398#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1133,47 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addStudy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://77e984d9-a95e-47e2-b416-8f7973f3a5c9/database/study_db/schema/public/table/patients">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/updateStudy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="44" column="57" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/repos/StudyRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1185,6 +1106,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/StudyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/PatientService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1222,7 +1174,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/dto/PatientDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="235">
           <caret line="29" column="34" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="34" />
         </state>
       </provider>
@@ -1257,48 +1209,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addPatient.html">
+    <entry file="file://$PROJECT_DIR$/target/generated-sources/annotations/com/firstline/procedure/scheduling/mapper/PatientMapperImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="36" selection-start-line="36" selection-end-line="36" selection-end-column="57" />
+        <state relative-caret-position="270">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.3.RELEASE/spring-web-5.0.3.RELEASE.jar!/org/springframework/web/bind/annotation/ModelAttribute.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/viewPatientInfo.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/updateStudy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="355">
+          <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/PatientServiceImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="240">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/HelloController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="386">
           <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -1312,10 +1271,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addStudy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+        <state relative-caret-position="265">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://77e984d9-a95e-47e2-b416-8f7973f3a5c9/database/study_db/schema/public/table/patients">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="ctid" enabled="false" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/viewPatientInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addPatient.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
