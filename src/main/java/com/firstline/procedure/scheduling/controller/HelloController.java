@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/")
 public class HelloController {
 
     @Autowired
@@ -19,10 +20,10 @@ public class HelloController {
     StudyService studyService;
 
     @GetMapping("/main")
-    public ModelAndView greeting(
-            @RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+    public ModelAndView greeting(String name, Model model) {
         ModelAndView mv = new ModelAndView("main");
-        mv.addObject("name", name);
+        mv.addObject("patients", patientService.getAllPatients());
+
         return mv;
 
     }

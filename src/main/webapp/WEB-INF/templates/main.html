@@ -1,15 +1,26 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>WebbApp</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>Welcome!</h1>
-<a th:href="@{/patient}">ADD PATIENT</a></br>
+<h1>Patients dropdown list</h1>
+<div>
+    <select th:field="*{patients}">
+        <option th:each="patientDto : ${patients}"
+                th:value="${patientDto.id}"
+                th:text="${patientDto.patientName}">patient
+        </option>
+    </select>
+</div>
+
+
+<!--<a th:href="@{/patient}">ADD PATIENT</a></br>
 <a th:href="@{/study}">NEW STUDY</a></br>
 <a th:href="@{/study/update}">UPDATE STUDY</a></br>
-<a th:href="@{/patient/list}">LIST PATIENTS</a>
+<a th:href="@{/patient/list}">LIST PATIENTS</a>-->
 </body>
 
 <html>

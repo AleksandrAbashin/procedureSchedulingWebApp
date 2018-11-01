@@ -21,8 +21,15 @@
 <form action="#" th:action="@{/study}" th:object="${studyDto}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <div class="container">
-        <label>Patient id:</label>
-        <input type="text" th:field="*{patientId}"><br>
+        <!--<label>Patient id:</label>
+        <input type="text" th:field="*{patientId}"><br>-->
+        <label>Select patient:</label>
+        <select th:field="*{patientId}">
+            <option th:each="patientDto : ${patients}"
+                    th:value="${patientDto.id}"
+                    th:text="${patientDto.patientName}">patient
+            </option>
+        </select>
         <label>Description:</label>
         <input type="text" th:field="*{description}"><br>
         <label>Status:</label>

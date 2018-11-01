@@ -42,10 +42,8 @@ public class PatientController {
 
 
         List<StudyDto> studies = patientService.getListStudiesOfPatient(id);
-
         mav.addObject("studies", studies);
+
         return mav;
-
     }
-
 }
