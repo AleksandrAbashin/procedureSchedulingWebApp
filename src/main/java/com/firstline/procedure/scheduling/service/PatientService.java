@@ -2,6 +2,7 @@ package com.firstline.procedure.scheduling.service;
 
 import com.firstline.procedure.scheduling.dto.PatientDto;
 import com.firstline.procedure.scheduling.dto.StudyDto;
+import org.springframework.data.util.Pair;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface PatientService {
     List<PatientDto> getAllPatients();
 
     List<StudyDto> getListStudiesOfPatient(Long id);
+
+    Pair<Long, List<PatientDto>> getLimitLisOfPatient(int page, int size);
 }

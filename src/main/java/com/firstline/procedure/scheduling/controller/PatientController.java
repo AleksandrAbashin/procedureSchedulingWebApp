@@ -33,8 +33,9 @@ public class PatientController {
     }
 
     @GetMapping("/list")
-    public String getListPatients(Model model) {
-        model.addAttribute("patients", patientService.getAllPatients());
+    public String getListPatients(Model model, @RequestParam int page, int size) {
+        model.addAttribute("patients",  patientService.getLimitLisOfPatient(page,size)); // return shot list
+        model.addAttribute("page", page);
         return "list";
     }
 

@@ -9,6 +9,9 @@ import com.firstline.procedure.scheduling.mapper.StudyMapper;
 import com.firstline.procedure.scheduling.repos.PatientRepository;
 import com.firstline.procedure.scheduling.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,12 +21,19 @@ import java.util.List;
 public class PatientServiceImp implements PatientService {
 
     @Autowired
-    PatientRepository patientRepository;
+    private PatientRepository patientRepository;
 
     @Autowired
-    PatientMapper patientMapper;
+    private PatientMapper patientMapper;
+
     @Autowired
-    StudyMapper studyMapper;
+    private StudyMapper studyMapper;
+
+    @Override
+    public Pair<Long, List<PatientDto>> getLimitLisOfPatient(int page, int size) {
+        Page<Patient> pages = patientRepository.findAll(PageRequest.of(page, size));
+        return Pair.of(pages.getTotalElements(),patientMapper.fromListPatient(pages.getContent()));
+    }
 
     @Override
     @Transactional
@@ -33,7 +43,7 @@ public class PatientServiceImp implements PatientService {
 
     @Override
     public PatientDto createPatient(PatientDto patientDto) {
-        if(patientDto.getPatientName() == null) {
+        if (patientDto.getPatientName() == null) {
             throw new ThereIsNoSuchPatientNameException();
         }
 
