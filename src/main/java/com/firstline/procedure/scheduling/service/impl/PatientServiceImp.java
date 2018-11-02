@@ -1,5 +1,6 @@
 package com.firstline.procedure.scheduling.service.impl;
 
+import com.firstline.procedure.scheduling.Exception.ThereIsNoSuchPatientNameException;
 import com.firstline.procedure.scheduling.domain.Patient;
 import com.firstline.procedure.scheduling.dto.PatientDto;
 import com.firstline.procedure.scheduling.dto.StudyDto;
@@ -32,6 +33,9 @@ public class PatientServiceImp implements PatientService {
 
     @Override
     public PatientDto createPatient(PatientDto patientDto) {
+        if(patientDto.getPatientName() == null) {
+            throw new ThereIsNoSuchPatientNameException();
+        }
 
         Patient patient = patientMapper.toPatient(patientDto);
         patientRepository.save(patient);

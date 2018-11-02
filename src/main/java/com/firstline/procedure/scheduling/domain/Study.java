@@ -1,6 +1,7 @@
 package com.firstline.procedure.scheduling.domain;
 
 import com.firstline.procedure.scheduling.domain.enums.Status;
+import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ public class Study {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "description")
     private  String description;
 
@@ -19,6 +21,7 @@ public class Study {
     @Column(name = "study_status",nullable=false)
     private Status status;
 
+    @NotNull
     @Column(name = "planned_start_time",nullable=false)
     private LocalDate plannedStartTime;
 

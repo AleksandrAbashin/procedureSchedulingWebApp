@@ -24,8 +24,10 @@ public class PatientController {
         return "addPatient";
     }
 
+
     @PostMapping
     public String createPatient(@ModelAttribute PatientDto patientDto) {
+
         patientService.createPatient(patientDto);
         return "addPatient";
     }

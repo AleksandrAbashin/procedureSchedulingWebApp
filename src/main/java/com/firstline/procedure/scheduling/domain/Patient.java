@@ -1,6 +1,7 @@
 package com.firstline.procedure.scheduling.domain;
 
 import com.firstline.procedure.scheduling.domain.enums.Sex;
+import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,6 +14,7 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "patient_name",nullable=false)
     private String patientName;
 

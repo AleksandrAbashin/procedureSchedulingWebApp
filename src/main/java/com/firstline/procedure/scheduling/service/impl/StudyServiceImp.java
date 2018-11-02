@@ -1,5 +1,6 @@
 package com.firstline.procedure.scheduling.service.impl;
 
+import com.firstline.procedure.scheduling.Exception.ThereIsNoSuchPatientException;
 import com.firstline.procedure.scheduling.domain.Study;
 import com.firstline.procedure.scheduling.dto.StudyDto;
 import com.firstline.procedure.scheduling.mapper.StudyMapper;
@@ -23,6 +24,10 @@ public class StudyServiceImp implements StudyService {
     @Override
     public StudyDto createStudy(StudyDto studyDto) {
         Study study = studyMapper.toStudy(studyDto);
+
+        if(studyDto.getPatientId() == null) {
+            throw new ThereIsNoSuchPatientException();
+        }
 
         study.setPatient(patientRepository.getById(studyDto.getPatientId()));
         studyRepository.save(study);
