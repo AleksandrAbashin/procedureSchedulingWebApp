@@ -13,6 +13,38 @@
     <title>List Patients</title>
 </head>
 <body>
+
+<div class="table-cell">
+    <h2>Patients list</h2>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Date Birth</th>
+                <th scope="col">Info patient</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="patientDto : ${patients}">
+
+                <td th:text="${patientDto.patientName}"></td>
+                <td th:text="${patientDto.patientSex}"></td>
+                <td th:text="${patientDto.patientDateBirth}"></td>
+                <td><a href="#" th:href="@{/patient/get/} + ${patientDto.id}">View</a></td>
+            </tbody>
+
+        </table>
+    </div>
+
+
+    <a th:href="@{/patient}">Add New Patient</a>
+    <br/><br/>
+</div>
+
+
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -26,30 +58,5 @@
         crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
-
-<div class="container mt-5">
-    <h2>Patients list</h2>
-    <div class="row col-md-7 table-responsive">
-        <table>
-            <tbody>
-            <!--/*@thymesVar id="patients" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
-            <tr th:each="patientDto : ${patients}">
-                <th scope="row"></th>
-                <td th:text="${patientDto.patientName}"></td>
-                <td th:text="${patientDto.patientSex}"></td>
-                <td th:text="${patientDto.patientDateBirth}"></td>
-
-                <td><a href="#" th:href="@{/patient/get/} + ${patientDto.id}">View</a></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-    <a th:href="@{/patient}">Add New Patient</a>
-    <br/><br/>
-</div>
-
 </body>
 </html>

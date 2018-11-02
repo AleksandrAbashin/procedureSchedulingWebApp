@@ -9,37 +9,49 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .container {
+            width: 320px;
+            clear: both;
+        }
 
+        .container input {
+            width: 100%;
+            clear: both;
+        }
+    </style>
     <title>Add new patient</title>
 </head>
 <body>
-
 <div class="container mt-5">
     <h1>Add new patient</h1>
-<!--/*@thymesVar id="patientDto" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
-<form action="#" th:action="@{/patient}" th:object="${patientDto}" method="post">
-    <div class="form-group">
-        <tr><label>Patient name:</label>
-            <input type="text" th:field="*{patientName}"><br>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your personal data with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label>Sex:</label>
-        <select th:field="*{patientSex}">
-            <option th:value="'MALE'" th:text="Male"></option>
-            <option th:value="'FEMALE'" th:text="Female"></option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>patient date birth</label>
-        <input type="date" th:field="*{patientDateBirth}"><br>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <!--/*@thymesVar id="patientDto" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
+    <form action="#" th:action="@{/patient}" th:object="${patientDto}" method="post">
+        <div class="form-group">
+            <tr><label>Patient name:</label>
+                <input class="form-control" type="text" th:field="*{patientName}"><br>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your personal data with anyone
+                    else.
+                </small>
+        </div>
+        <div class="form-group">
+            <label>Sex:</label>
+            <select class="custom-select" th:field="*{patientSex}">
+                <option th:value="'MALE'" th:text="Male">MALE</option>
+                <option th:value="'FEMALE'" th:text="Female">FEMALE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>patient date birth</label>
+            <input type="date" th:field="*{patientDateBirth}"><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
-<a th:href="@{/patient/list}">return to list patients</a>
+    <a th:href="@{/patient/list}">return to list patients</a>
 
 </div>
+
 
 
 <!-- Optional JavaScript -->

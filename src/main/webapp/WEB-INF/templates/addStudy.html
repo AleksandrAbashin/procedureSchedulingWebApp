@@ -14,17 +14,38 @@
             clear: both;
         }
     </style>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>List Patients</title>
+    <style>
+        .container {
+            width: 320px;
+            clear: both;
+        }
+
+        .container input {
+            width: 100%;
+            clear: both;
+        }
+    </style>
 </head>
 <body>
-<h1>Study create or update</h1>
+
 <!--/*@thymesVar id="studyDto" type="com.firstline.procedure.scheduling.dto.StudyDto"*/-->
 <form action="#" th:action="@{/study}" th:object="${studyDto}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <div class="container">
-        <!--<label>Patient id:</label>
-        <input type="text" th:field="*{patientId}"><br>-->
+        <h1>Add study</h1>
+
         <label>Select patient:</label>
-        <select th:field="*{patientId}">
+        <select class="custom-select" th:field="*{patientId}">
             <option th:each="patientDto : ${patients}"
                     th:value="${patientDto.id}"
                     th:text="${patientDto.patientName}">patient
@@ -33,7 +54,7 @@
         <label>Description:</label>
         <input type="text" th:field="*{description}"><br>
         <label>Status:</label>
-        <select th:field="*{status}">
+        <select class="custom-select" th:field="*{status}">
             <option th:value="'PLANNED'" th:text="Planned"></option>
             <option th:value="'IN_PROGRESS'" th:text="In_progress"></option>
             <option th:value="'FINISHED'" th:text="Finished"></option>
@@ -47,7 +68,8 @@
         <br>
         <button type="submit">start study!</button>
         </br>
+        <a th:href="@{/patient/list}">return to list patients</a>
     </div>
 </form>
-<a th:href="@{/patient/list}">return to list patients</a>
+
 </body>
