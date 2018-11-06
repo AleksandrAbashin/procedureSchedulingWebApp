@@ -8,9 +8,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,15 +31,19 @@ public class PatientController {
 
     @GetMapping
     public String editorPage(Model model) {
-        model.addAttribute("patientDto", new PatientDto());
+            model.addAttribute("patientDto", new PatientDto());
         return "addPatient";
     }
 
 
     @PostMapping
-    public String createPatient(@ModelAttribute PatientDto patientDto) {
+    public String createPatient(@ModelAttribute @Valid PatientDto patientDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "addPatient";
+        }  else {
+            patientService.createPatient(patientDto);
+        }
 
-        patientService.createPatient(patientDto);
         return "addPatient";
     }
 

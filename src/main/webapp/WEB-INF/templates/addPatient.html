@@ -28,9 +28,11 @@
     <!--/*@thymesVar id="patientDto" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
     <form action="#" th:action="@{/patient}" th:object="${patientDto}" method="post">
         <div class="form-group">
-            <tr><label>Patient name:</label>
+            <tr>
+                <label>Patient name:</label>
                 <input class="form-control" type="text" th:field="*{patientName}"><br>
-                <small id="emailHelp" class="form-text text-muted">We'll never share your personal data with anyone
+                <td th:if="${#fields.hasErrors('patientName')}" th:errors="*{patientName}">Name Error</td>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your personal data with anyone
                     else.
                 </small>
         </div>
