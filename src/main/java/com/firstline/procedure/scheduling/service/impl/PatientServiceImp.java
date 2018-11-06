@@ -13,7 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,10 +55,19 @@ public class PatientServiceImp implements PatientService {
     }
 
     @Override
-    public Pair<Long, List<PatientDto>> getLimitLisOfPatient(int page, int size) {
-        Page<Patient> pages = patientRepository.findAll(PageRequest.of(page, size));
-        return Pair.of(pages.getTotalElements(),patientMapper.fromListPatient(pages.getContent()));
+    @Transactional
+    public Page<PatientDto> pagination (Pageable pageable) {
+        Page<Patient> patientsPage = patientRepository.findAll(pageable);
+        List<PatientDto> patients = patientMapper.fromListPatient(patientsPage.getContent());
+        int pageSize = pageable.getPageSize();
+        int currentPage = pageable.getPageNumber();
+
+        Page<PatientDto> patientPage
+                = new PageImpl<PatientDto>(patients, PageRequest.of(currentPage, pageSize), patients.size());
+
+        return patientPage;
     }
+
 
     @Override
     @Transactional

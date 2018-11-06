@@ -4,7 +4,6 @@ import com.firstline.procedure.scheduling.dto.PatientDto;
 import com.firstline.procedure.scheduling.dto.StudyDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.util.Pair;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public interface PatientService {
 
     List<StudyDto> getListStudiesOfPatient(Long id);
 
-    Pair<Long, List<PatientDto>> getLimitLisOfPatient(int page, int size);
-
     Page<PatientDto> paginatedList(Pageable pageable);
+
+    Page<PatientDto> pagination (Pageable pageable);
 }
