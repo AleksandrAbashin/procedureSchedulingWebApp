@@ -15,35 +15,44 @@
 <body>
 
 <div class="table-cell">
-    <h2>Patients list</h2>
-    <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Sex</th>
-                <th scope="col">Date Birth</th>
-                <th scope="col">Info patient</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="patientDto : ${patients}">
+    <title>List Patients</title>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Date Birth</th>
+            <th scope="col">Info patient</th>
 
-                <td th:text="${patientDto.patientName}"></td>
-                <td th:text="${patientDto.patientSex}"></td>
-                <td th:text="${patientDto.patientDateBirth}"></td>
-                <td><a href="#" th:href="@{/patient/get/} + ${patientDto.id}">View</a></td>
-            </tbody>
-
-        </table>
-    </div>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="patientDto , iStat : ${patientPage.content}"
+            th:style="${iStat.odd}? 'font-weight: bold;'"
+            th:alt-title="${iStat.even}? 'even' : 'odd'">
+            <td th:text="${patientDto.patientName}"></td>
+            <td th:text="${patientDto.patientSex}"></td>
+            <td th:text="${patientDto.patientDateBirth}"></td>
+            <td><a href="#" th:href="@{/patient/get/} + ${patientDto.id}">View</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <nav >
+        <ul class="pagination pagination-lg">
+            <li class="page-item" th:if="${patientPage.totalPages > 0}"
+                th:each="pageNumber : ${pageNumbers}">
+                <a class="page-link" th:href="@{/patient/list(size=${patientPage.size}, page=${pageNumber})}"
+                   th:text=${pageNumber}
+                   th:class="${pageNumber==patientPage.number + 1} ? active"></a>
+            </li>
+        </ul>
+    </nav>
 
 
     <a th:href="@{/patient}">Add New Patient</a>
     <br/><br/>
+    </hr>
 </div>
-
-
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
