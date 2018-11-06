@@ -23,6 +23,11 @@ public class PatientDto {
     @DateTimeFormat(iso = DATE)
     private LocalDate patientDateBirth;
 
+    public PatientDto(@Size(min = 2, max = 30) String patientName, String patientSex) {
+        this.patientName = patientName;
+        this.patientSex = patientSex;
+    }
+
     public LocalDate getPatientDateBirth() {
         return patientDateBirth;
     }

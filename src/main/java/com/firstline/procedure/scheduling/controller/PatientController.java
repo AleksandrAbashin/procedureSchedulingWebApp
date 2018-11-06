@@ -28,6 +28,12 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String prepareView(Model model) {
+        model.addAttribute("msg", "Spring quick start!!");
+        return "my-page";
+    }
+
 
     @GetMapping
     public String editorPage(Model model) {
