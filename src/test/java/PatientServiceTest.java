@@ -1,52 +1,78 @@
 import com.firstline.procedure.scheduling.configs.DataBaseConfig;
-import com.firstline.procedure.scheduling.configs.MyWebAppInitializer;
-import com.firstline.procedure.scheduling.configs.TestConfig;
 import com.firstline.procedure.scheduling.configs.WebMvcConfiguration;
-import com.firstline.procedure.scheduling.domain.Patient;
-import com.firstline.procedure.scheduling.domain.enums.Sex;
-import com.firstline.procedure.scheduling.repos.PatientRepository;
-import com.firstline.procedure.scheduling.service.PatientService;
-import com.firstline.procedure.scheduling.service.impl.PatientServiceImp;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.data.domain.Pageable;
+import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
-@RunWith(MockitoJUnitRunner.class)
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {DataBaseConfig.class,
-        MyWebAppInitializer.class,
-        WebMvcConfiguration.class,
-        TestConfig.class})
-public class PatientServiceTest {
+        WebMvcConfiguration.class})
+@WebAppConfiguration
+public class PatientServiceTest extends Assert {
 
-    @Mock
-    private PatientRepository patientRepository;
+    @Autowired
+    private WebApplicationContext webAppContext;
+    private MockMvc mockMvc;
 
-    @Mock
-    Pageable pageable;
-
-    @InjectMocks
-    PatientService patientService = new PatientServiceImp();
+    @Before
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+        mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
+    }
 
 
     @Test
-    public void getPatientByIdTest() {
-        Patient patientDto = new Patient();
-        patientDto.setId(1001L);
-        patientDto.setPatientName("Aleks");
-        patientDto.setPatientSex(Sex.MALE);
+    public void getShotListPatientsTest() throws Exception {
+        mockMvc.perform(get("/patient/list"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("list"))
+                .andExpect(model().attributeExists("patientPage", "pageNumbers"));
 
-        Mockito.when(patientRepository.getById(1001L)).thenReturn(patientDto);
     }
 
     @Test
-    public void paginatedListTest() {
+    public void getListOfPatientStudiesTest() throws Exception {
+      /*  List<StudyDto> studies = Arrays.asList(
+                new StudyDto(1L, "Gripp", "PLANNED", 1L),
+                new StudyDto(2L, "OSP", "PLANNED", 1L));
+        patientService.createPatient(new PatientDto(1L, "Aleks", "MALE", studies));
+        when(patientService.getListStudiesOfPatient(1L)).thenReturn(studies);*/
 
-        Mockito.when(null).thenReturn(null);
+        mockMvc.perform(get("/patient/get/{id}", 1))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("text/html"))
+                .andExpect(view().name("viewPatientInfo"))
+                .andExpect(model().attributeExists("studies"));
     }
+
+
+ /*   @Test
+ //   public Page<PatientDto> pagination (Pageable pageable) {
+    public void paginationTest () {
+        patientRepository.save(new Patient("Misha",Sex.MALE, 1L));
+        List<PatientDto> patients = patientMapper.fromListPatient(patientRepository.findAll());
+
+        int pageSize = 1;
+        int currentPage = 1;
+
+        Page<PatientDto> patientPage
+                = new PageImpl<PatientDto>(patients, PageRequest.of(1, 1), patients.size());
+
+
+        Assert.assertEquals(patientService.paginatedList(new PageRequest.of(1,1)),patientPage);
+
+    }*/
 
 }

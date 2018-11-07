@@ -37,6 +37,9 @@ public class Patient {
     public Patient() {
     }
 
+    public Patient(String misha, Sex male, long id) {
+    }
+
     public Long getId() {
         return id;
     }

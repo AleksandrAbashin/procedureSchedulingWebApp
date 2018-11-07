@@ -28,6 +28,13 @@ public class PatientDto {
         this.patientSex = patientSex;
     }
 
+    public PatientDto(Long id, @Size(min = 2, max = 30) String patientName, String patientSex, List<StudyDto> studies) {
+        this.id = id;
+        this.patientName = patientName;
+        this.patientSex = patientSex;
+        this.studies = studies;
+    }
+
     public LocalDate getPatientDateBirth() {
         return patientDateBirth;
     }

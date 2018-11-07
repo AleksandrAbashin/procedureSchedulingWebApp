@@ -78,9 +78,8 @@ public class PatientController {
     }
 
     @GetMapping("/get/{id}")
-    public ModelAndView getListOfPatient(@PathVariable Long id) {
+    public ModelAndView getListOfPatientStudies(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView("viewPatientInfo");
-
 
         List<StudyDto> studies = patientService.getListStudiesOfPatient(id);
         mav.addObject("studies", studies);

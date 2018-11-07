@@ -37,6 +37,13 @@ public class StudyDto {
 
     }
 
+    public StudyDto(Long id, String description, String status, Long patientId) {
+        this.id = id;
+        this.description = description;
+        this.status = status;
+        this.patientId = patientId;
+    }
+
     public Long getId() {
         return id;
     }

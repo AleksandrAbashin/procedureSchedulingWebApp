@@ -68,6 +68,7 @@ public class DataBaseConfig {
                 "hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         properties.setProperty("hibernate.show_sql", "true");
         properties.setProperty("hibernate.format_sql", "true");
+        properties.setProperty("hbm2ddl","auto");
 
         return properties;
     }
