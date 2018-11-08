@@ -108,22 +108,3 @@ public class PatientServiceTest extends Assert {
                 , patientPageActual.getContent().get(0).getPatientName());
     }
 }
-    /*@Test
-    @Transactional
-    public void getListStudiesOfPatientTest() {
-        Patient patient = new Patient();
-        patient.setPatientName("Misha");
-        patient.setPatientSex(Sex.MALE);
-        Study study = new Study();
-        study.setDescription("Gripp");
-        study.setStatus(Status.FINISHED);
-        study.setPlannedStartTime(LocalDate.parse("10-10-2018"));
-        List<Study> studies = Arrays.asList(study);
-        patient.setStudies(studies);
-        patientService.createPatient(patientMapper.fromPatient(patient));
-
-        List<StudyDto> dtoList = studyMapper.fromListStudy(patient.getStudies());
-        List<StudyDto> listActual = patientService.getListStudiesOfPatient(1L);
-
-        Assert.assertEquals(dtoList.get(0).getDescription(), listActual.get(0).getDescription());
-    }*/
