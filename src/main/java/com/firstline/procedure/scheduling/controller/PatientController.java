@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
-@RequestMapping("/patient")
+@RequestMapping("/")
 public class PatientController {
 
     private static int currentPage = 1;
@@ -28,21 +28,19 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String prepareView(Model model) {
-        model.addAttribute("msg", "Spring quick start!!");
-        return "my-page";
+    @GetMapping("/login")
+    public String loginPage(Model model) {
+        return "login";
     }
 
-
-    @GetMapping
+    @GetMapping("/patient")
     public String editorPage(Model model) {
             model.addAttribute("patientDto", new PatientDto());
         return "addPatient";
     }
 
 
-    @PostMapping
+    @PostMapping("/patient")
     public String createPatient(@ModelAttribute @Valid PatientDto patientDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "addPatient";
@@ -53,7 +51,7 @@ public class PatientController {
         return "addPatient";
     }
 
-    @GetMapping("/list")
+    @GetMapping("/patient/list")
     public String getShotListPatients(
             Model model,
             @RequestParam("page") Optional<Integer> page,
@@ -77,7 +75,7 @@ public class PatientController {
         return "list";
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/patient/get/{id}")
     public ModelAndView getListOfPatientStudies(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView("viewPatientInfo");
 
