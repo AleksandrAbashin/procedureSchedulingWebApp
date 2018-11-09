@@ -28,11 +28,6 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
-    @GetMapping("/login")
-    public String loginPage(Model model) {
-        return "login";
-    }
-
     @GetMapping("/patient")
     public String editorPage(Model model) {
             model.addAttribute("patientDto", new PatientDto());

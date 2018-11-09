@@ -7,7 +7,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
     @Override
     protected Class<?>[] getRootConfigClasses() {
 
-        return new Class<?>[] { WebMvcConfiguration.class};
+        return new Class<?>[] { WebMvcConfiguration.class, WebSecurityConfig.class};
     }
 
     @Override
