@@ -23,18 +23,20 @@
 </head>
 <body>
 <div class="container mt-5">
-    Regiset new user
-    <form th:action="@{/registration}" method="post">
-        <div class="form-group">
-            <div><label> User Name : <input type="text" name="name"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-         <!--   <div><label>Retype password: <input type="password" name="password2"/> </label></div>-->
-        </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
-      <!--  <div><input type="submit" value="Log In"/></div>-->
-    </form>
-</div>
+Regiset new user
+<form th:action="@{/registration}" method="post">
+    <div class="form-group">
+        <div><label> User Name : <input type="text" name="name"/> </label></div>
+        <p th:text="${userError}"></p>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <div ><label> Confirm password: <input type="password" name="password2"/> </label></div>
+                   <p th:text="${passwordError}"></p>
 
+    </div>
+    <button type="submit" class="btn btn-primary">Log In</button>
+    <!--  <div><input type="submit" value="Log In"/></div>-->
+</form>
+</div>
 
 </body>
 </html>
