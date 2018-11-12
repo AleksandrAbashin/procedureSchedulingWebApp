@@ -11,7 +11,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>List Patients</title>
+
+    <div class="alert alert-primary" role="alert">
+        List Patients
+    </div>
 </head>
 <body>
 
@@ -53,9 +56,10 @@
     <a th:href="@{/patient}">Add New Patient</a>
     <br/><br/>
 
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
+        <button type="submit" class="btn btn-primary">Sign Out</button>
+     <!--   <input type="submit" value="Sign Out"/>-->
     </form>
     </hr>
 </div>

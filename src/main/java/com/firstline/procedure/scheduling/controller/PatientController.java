@@ -46,7 +46,7 @@ public class PatientController {
         return "addPatient";
     }
 
-    @GetMapping("/patient/list")
+    @GetMapping/*("/patient/list")*/
     public String getShotListPatients(
             Model model,
             @RequestParam("page") Optional<Integer> page,
