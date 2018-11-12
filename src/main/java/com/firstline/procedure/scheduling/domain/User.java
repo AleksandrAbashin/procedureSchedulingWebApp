@@ -45,13 +45,26 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   // @NotNull
     @Column(name = "name")
     private String name;
 
-   // @NotNull
     @Column(name = "password")
     private String password;
+
+ /*   @org.springframework.data.annotation.Transient
+    @Column(name = "password2")
+    @NotBlank(message = "Password confirmation cannot be empty")
+    private String password2;
+       public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
+}
+
+    */
 
     private Role role = Role.USER;
 
@@ -89,4 +102,5 @@ public class User implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
