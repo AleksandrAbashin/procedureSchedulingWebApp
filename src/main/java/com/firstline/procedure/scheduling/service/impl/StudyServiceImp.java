@@ -1,6 +1,6 @@
 package com.firstline.procedure.scheduling.service.impl;
 
-import com.firstline.procedure.scheduling.Exception.ThereIsNoSuchPatientException;
+import com.firstline.procedure.scheduling.exception.ThereIsNoSuchPatientException;
 import com.firstline.procedure.scheduling.domain.Study;
 import com.firstline.procedure.scheduling.dto.StudyDto;
 import com.firstline.procedure.scheduling.mapper.StudyMapper;

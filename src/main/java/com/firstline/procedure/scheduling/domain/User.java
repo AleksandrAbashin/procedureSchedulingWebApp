@@ -1,17 +1,11 @@
 package com.firstline.procedure.scheduling.domain;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import java.util.Arrays;
-import java.util.Collection;
 
 @Entity
 @Table(name = "users")
-public class User implements UserDetails {
-    @Override
+public class User /*implements UserDetails*/ {
+   /* @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
@@ -39,7 +33,7 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
+    }*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,7 +58,7 @@ public class User implements UserDetails {
 
 
 
-    private Role role = Role.USER;
+    /*private Role role = Role.USER;
 
     public Role getRole() {
         return role;
@@ -76,7 +70,7 @@ public class User implements UserDetails {
 
     public User() {
     }
-
+*/
     public Long getId() {
         return id;
     }
