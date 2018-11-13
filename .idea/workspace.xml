@@ -8,21 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83c61b17-de93-49a5-b205-d32457eb7657" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/MyUserPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserDetailsServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/repos/UserDetailsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/loginFailure.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/loginSuccess.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/oauth_login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/Exception/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/exception/NotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/Exception/ThereIsNoSuchPatientException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/exception/ThereIsNoSuchPatientException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/Exception/ThereIsNoSuchPatientNameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/exception/ThereIsNoSuchPatientNameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/PatientServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/PatientServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/MyUserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/MyUserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT/WEB-INF/classes/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT/WEB-INF/classes/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT/WEB-INF/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/schedulingApplication-1.0-SNAPSHOT/WEB-INF/classes/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -162,8 +163,31 @@
       <file leaf-file-name="WebSecurityConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+            <state relative-caret-position="264">
+              <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6482#6483#0" expanded="true" />
+                <element signature="e#6533#6534#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebMvcConfiguration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControllerUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/ControllerUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,51 +195,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users" pinned="false" current-in-tab="true">
-        <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-              <column-attributes>
-                <column name="ctid" enabled="false" />
-              </column-attributes>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyUserPrincipal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/MyUserPrincipal.java">
+      <file leaf-file-name="HelloController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/HelloController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="10" column="51" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="51" />
-              <folding>
-                <element signature="e#486#487#0" expanded="true" />
-                <element signature="e#518#519#0" expanded="true" />
-                <element signature="e#729#730#0" expanded="true" />
-                <element signature="e#756#757#0" expanded="true" />
-                <element signature="e#554#555#0" expanded="true" />
-                <element signature="e#586#587#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#671#672#0" expanded="true" />
-                <element signature="e#728#729#0" expanded="true" />
-                <element signature="e#755#756#0" expanded="true" />
-                <element signature="e#817#818#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
-                <element signature="e#919#920#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDetailsServiceImp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserDetailsServiceImp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -223,7 +207,7 @@
       <file leaf-file-name="LocalConfiguration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/LocalConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
+            <state relative-caret-position="240">
               <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -232,38 +216,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages.properties">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="ResourceBundle" />
-        </entry>
-      </file>
-      <file leaf-file-name="messages_en.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages_en.properties">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="ResourceBundle" />
-        </entry>
-      </file>
-      <file leaf-file-name="messages_fr.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages_fr.properties">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="ResourceBundle" />
-        </entry>
-      </file>
-      <file leaf-file-name="DataBaseConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/DataBaseConfig.java">
+      <file leaf-file-name="MyWebAppInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/MyWebAppInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="SpringSecurityInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/SpringSecurityInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2287">
-              <caret line="182" column="21" selection-start-line="182" selection-start-column="21" selection-end-line="182" selection-end-column="21" />
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2067#2075#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PatientController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistrationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/RegistrationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="47" column="41" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -275,9 +275,9 @@
       <list>
         <option value="Enum" />
         <option value="FxmlFile" />
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -304,15 +304,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/collection.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/HelloController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/Exception/NotFoundException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/Exception/ThereIsNoSuchPatientException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/Exception/ThereIsNoSuchPatientNameException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/Room.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/Doctor.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/viewPatientInfo.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/bootstrap.html" />
@@ -330,7 +321,6 @@
         <option value="$PROJECT_DIR$/src/test/java/PatientServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/SpringSecurityInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/MyWebAppInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/repos/UserDtoRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/mapper/UserMapper.java" />
@@ -349,12 +339,22 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/RegistrationController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserDetailsServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/repos/UserDetailsRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/MyUserPrincipal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/template/oauth_login.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/oauth_login.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/loginSuccess.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/loginFailure.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/Client.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/LoginController.java" />
       </list>
     </option>
   </component>
@@ -414,7 +414,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -465,7 +465,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="scheduling" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="schedulingApplication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="schedulingApplication" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="scheduling" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="schedulingApplication" type="b2602c69:ProjectViewProjectNode" />
@@ -473,14 +482,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="schedulingApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="schedulingApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="locale" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="schedulingApplication" type="b2602c69:ProjectViewProjectNode" />
@@ -506,24 +507,11 @@
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="schedulingApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="schedulingApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="schedulingApplication" type="b2602c69:ProjectViewProjectNode" />
-              <item name="schedulingApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -543,8 +531,10 @@
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.firstline.procedure.scheduling.service.impl" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates" />
+      <recent name="$PROJECT_DIR$/src/main/resources/messages" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates" />
@@ -557,9 +547,8 @@
       <recent name="com.firstline.procedure.scheduling.converter" />
       <recent name="com.firstline.procedure.scheduling.configs" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/messages" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.firstline.procedure.scheduling.service.impl" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -574,7 +563,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PatientServiceTest">
+  <component name="RunManager" selected="Tomcat Server.Unnamed">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.firstline.procedureScheduling.MainClass" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -1037,14 +1026,13 @@
       <workItem from="1541136658466" duration="28212000" />
       <workItem from="1541481240322" duration="34638000" />
       <workItem from="1541667731780" duration="40686000" />
-      <workItem from="1541998176221" duration="31845000" />
+      <workItem from="1541998176221" duration="33386000" />
+      <workItem from="1542085544005" duration="18849000" />
+      <workItem from="1542125882557" duration="4836000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PatientServiceTest_getListStudiesOfPatientTest - 2018.11.08 at 12h 09m 15s.xml">
-      <configuration name="PatientServiceTest.getListStudiesOfPatientTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PatientServiceTest_paginatedListTest - 2018.11.08 at 12h 11m 04s.xml">
       <configuration name="PatientServiceTest.paginatedListTest" configurationId="JUnit" />
     </history-entry>
@@ -1072,9 +1060,12 @@
     <history-entry file="PatientServiceTest - 2018.11.12 at 17h 31m 32s.xml">
       <configuration name="PatientServiceTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PatientServiceTest - 2018.11.13 at 08h 06m 32s.xml">
+      <configuration name="PatientServiceTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="384255000" />
+    <option name="totallyTimeSpent" value="409481000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1090,17 +1081,17 @@
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002767" side_tool="true" weight="0.42028984" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008301" side_tool="true" weight="0.26532888" />
       <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32949308" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.18705036" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.27670172" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" anchor="right" id="Database" order="6" sideWeight="0.58877087" visible="true" weight="0.26175982" />
+      <window_info anchor="right" id="Database" order="6" sideWeight="0.58877087" weight="0.26175982" />
       <window_info id="Structure" order="1" sideWeight="0.12844037" side_tool="true" weight="0.20641948" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.45373467" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4991699" weight="0.4136009" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32998884" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.36677814" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -1108,31 +1099,30 @@
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32998884" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.26532888" />
-      <window_info anchor="right" id="Coverage" sideWeight="0.41122913" side_tool="true" weight="0.26175982" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.43255296" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32864866" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29208472" />
-      <window_info anchor="bottom" id="Database Console" order="15" weight="0.32972974" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8715596" visible="true" weight="0.2086331" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.22408026" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8715596" visible="true" weight="0.21306032" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32982844" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3199554" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Database Console" order="15" weight="0.32972974" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3199554" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.41122913" side_tool="true" weight="0.26175982" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32949308" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.26532888" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32864866" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.32972974" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.26532888" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -1140,6 +1130,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.29208472" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002767" side_tool="true" weight="0.42028984" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.36677814" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32998884" />
@@ -1149,7 +1140,6 @@
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32998884" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.18705036" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3199554" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8715596" visible="true" weight="0.2086331" />
       <window_info anchor="right" id="Database" order="6" visible="true" weight="0.26175982" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1158,8 +1148,9 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" sideWeight="0.12844037" side_tool="true" weight="0.20641948" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.45373467" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3199554" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32982844" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45373467" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1170,7 +1161,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -1223,240 +1214,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/repos/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/SpringSecurityInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4e961e24-801b-4b17-8ac4-763dd6cb29c4/database/study_db/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.2.RELEASE/spring-data-commons-2.1.2.RELEASE.jar!/org/springframework/data/annotation/Transient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.2.RELEASE/spring-data-commons-2.1.2.RELEASE-sources.jar!/org/springframework/data/annotation/Transient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar!/javax/validation/Valid.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/ControllerUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/StudyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/jdk1.8.0_191/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -1464,27 +1221,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-98">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="37" />
-          <folding>
-            <element signature="e#2#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addPatient.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="38" column="32" lean-forward="true" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/RegistrationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="47" column="41" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1513,9 +1253,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1550,96 +1287,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/MyUserPrincipal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="51" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="51" />
-          <folding>
-            <element signature="e#486#487#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-            <element signature="e#756#757#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#671#672#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#919#920#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserDetailsServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/LocalConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages.properties">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="ResourceBundle" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages_en.properties">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="ResourceBundle" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/locale/messages_fr.properties">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="ResourceBundle" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/DataBaseConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2287">
-          <caret line="182" column="21" selection-start-line="182" selection-start-column="21" selection-end-line="182" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1650,6 +1313,275 @@
           <column-attributes>
             <column name="ctid" enabled="false" />
           </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserDetailsServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/UserServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/StudyServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/repos/UserDetailsRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/service/impl/MyUserPrincipal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="28" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="76" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="2" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/loginSuccess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/loginFailure.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="42" selection-start-line="1" selection-start-column="6" selection-end-line="2" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/addStudy.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/5.1.1.RELEASE/spring-security-oauth2-client-5.1.1.RELEASE.jar!/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/5.1.1.RELEASE/spring-security-oauth2-client-5.1.1.RELEASE.jar!/org/springframework/security/oauth2/client/registration/ClientRegistrationRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/5.1.1.RELEASE/spring-security-oauth2-client-5.1.1.RELEASE-sources.jar!/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/5.1.1.RELEASE/spring-security-oauth2-client-5.1.1.RELEASE-sources.jar!/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/2.0.1.RELEASE/spring-security-oauth2-2.0.1.RELEASE.jar!/org/springframework/security/oauth2/config/annotation/web/configuration/EnableOAuth2Client.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/jdk1.8.0_191/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/5.1.1.RELEASE/spring-security-oauth2-client-5.1.1.RELEASE-sources.jar!/org/springframework/security/oauth2/client/registration/InMemoryClientRegistrationRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/domain/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#1169#1170#0" expanded="true" />
+            <element signature="e#1198#1199#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.1.1.RELEASE/spring-security-config-5.1.1.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configuration/OAuth2ClientConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/5.1.1.RELEASE/spring-security-oauth2-client-5.1.1.RELEASE-sources.jar!/org/springframework/security/oauth2/client/registration/ClientRegistrationRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="189" column="24" selection-start-line="185" selection-start-column="7" selection-end-line="189" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.3.RELEASE/spring-core-5.0.3.RELEASE.jar!/org/springframework/core/env/Environment.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/oauth_login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="76" selection-start-line="1" selection-start-column="6" selection-end-line="2" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/PatientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/RegistrationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="47" column="41" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/LocalConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/MyWebAppInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/SpringSecurityInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/ControllerUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebMvcConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/configs/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6482#6483#0" expanded="true" />
+            <element signature="e#6533#6534#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstline/procedure/scheduling/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2067#2075#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
