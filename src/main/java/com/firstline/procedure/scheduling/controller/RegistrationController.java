@@ -56,5 +56,6 @@ public class RegistrationController {
         userService.createUser(userDto);
 
         return "redirect:/login";
+
     }
 }
