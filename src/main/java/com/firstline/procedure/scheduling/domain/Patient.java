@@ -1,7 +1,6 @@
 package com.firstline.procedure.scheduling.domain;
 
 import com.firstline.procedure.scheduling.domain.enums.Sex;
-import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -15,7 +14,7 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+   // @NotNull
     @Size(min=2, max=10)
     @Column(name = "patient_name",nullable=false)
     private String patientName;

@@ -11,7 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImp implements /*UserDetailsService,*/ UserService {
+public class UserServiceImp implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -39,6 +39,7 @@ public class UserServiceImp implements /*UserDetailsService,*/ UserService {
             return null;
         }else {
             userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+
             user = userRepository.save(userMapper.toUser(userDto));
         }
         return userMapper.fromUser(user);
@@ -49,8 +50,4 @@ public class UserServiceImp implements /*UserDetailsService,*/ UserService {
 
     }
 
-   /* @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return userRepository.findUserByName(s);
-    }*/
-}
+ }

@@ -1,6 +1,5 @@
 package com.firstline.procedure.scheduling.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -10,7 +9,7 @@ import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 
 public class StudyDto {
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+  //  @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
 
     private  String description;

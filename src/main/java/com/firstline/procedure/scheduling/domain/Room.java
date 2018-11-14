@@ -1,7 +1,5 @@
 package com.firstline.procedure.scheduling.domain;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.*;
 
 @Entity
@@ -12,7 +10,7 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long roomId;
 
-    @NotNull
+   // @NotNull
     @Column(name = "room_name")
     private String roomName;
 

@@ -1,6 +1,5 @@
 package com.firstline.procedure.scheduling.dto;
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Size;
@@ -14,7 +13,7 @@ public class PatientDto {
 
     private Long id;
 
-    @NotNull
+  //  @NotNull
     @Size(min=2, max=30)
     private String patientName;
 

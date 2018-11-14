@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User /*implements UserDetails*/ {
+public class User  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,20 +28,6 @@ public class User /*implements UserDetails*/ {
     }
 
 
-
-    /*private Role role = Role.USER;
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public User() {
-    }
-*/
     public Long getId() {
         return id;
     }

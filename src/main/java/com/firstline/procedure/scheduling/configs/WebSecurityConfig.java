@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -26,137 +27,142 @@ import org.springframework.security.oauth2.client.web.AuthorizationRequestReposi
 import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 
+import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@Configuration
+
 @EnableWebSecurity
-@PropertySource("classpath:application.properties")
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter  {
+public class WebSecurityConfig {
 
- /*   @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
+    @Order(1)
+    @Configuration
+    @Transactional
+    @PropertySource("classpath:application.properties")
+    public static class WebSecurityBasic extends WebSecurityConfigurerAdapter {
+        @Autowired
+        private UserDetailsService userDetailsService;
 
-                .authorizeRequests()
-                .antMatchers("/login", "/registration").permitAll()
-                .antMatchers("/").hasRole("USER")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().loginPage("/login")
-                .and()
-                .logout().logoutSuccessUrl("/login").permitAll()
-                .and()
-                .csrf().disable();
-    }*/
+        @Autowired
+        private PasswordEncoder passwordEncoder;
 
-   @Override
-   protected void configure(HttpSecurity http) throws Exception {
-       http.authorizeRequests()
-               .antMatchers( "/loginFailure", "/oauth_login")
-               .permitAll()
-               .anyRequest()
-               .authenticated()
-               .and()
-               .oauth2Login()
-               .loginPage("/oauth_login")
-               .authorizationEndpoint()
-               .baseUri("/oauth2/authorize-client")
-               .authorizationRequestRepository(authorizationRequestRepository())
-               .and()
-               .tokenEndpoint()
-               .accessTokenResponseClient(accessTokenResponseClient())
-               .and()
-               .defaultSuccessUrl("/patient" )
-               .failureUrl("/loginFailure");
-   }
+        @Bean
+        public DaoAuthenticationProvider authenticationProvider() {
+            DaoAuthenticationProvider authProvider
+                    = new DaoAuthenticationProvider();
+            authProvider.setUserDetailsService(userDetailsService);
+            authProvider.setPasswordEncoder(passwordEncoder);
+            return authProvider;
+        }
+
+        @Bean
+        public PasswordEncoder passwordEncoder() {
+            return new BCryptPasswordEncoder(8);
+        }
+
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth)
+                throws Exception {
+            auth.authenticationProvider(authenticationProvider());
+        }
 
 
-    @Bean
-    public OAuth2AuthorizedClientService authorizedClientService(Environment env) {
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
 
-        return new InMemoryOAuth2AuthorizedClientService(
-                clientRegistrationRepository(env));  }
+                    .authorizeRequests()
+                    .antMatchers("/login", "/registration","/loginFailure", "/oauth_login").permitAll()
+                    .antMatchers("/").hasRole("USER")
+                    .anyRequest().authenticated()
+                    .and()
+                    .formLogin().loginPage("/login")
+                    .and()
+                    .oauth2Login().loginPage("/oauth_login")
+                    .authorizationEndpoint()
+                    .baseUri("/oauth2/authorize-client")
+                    .authorizationRequestRepository(authorizationRequestRepository())
+                    .and()
+                    .tokenEndpoint()
+                    .accessTokenResponseClient(accessTokenResponseClient())
+                    .and()
+                    .defaultSuccessUrl("/patient")
+                    .failureUrl("/loginFailure")
+                    .and()
+                    .logout().logoutSuccessUrl("/login").permitAll()
+                    .and()
+                    .csrf().disable();
+        }
+
+        @Bean
+        public OAuth2AuthorizedClientService authorizedClientService(Environment env) {
+
+            return new InMemoryOAuth2AuthorizedClientService(
+                    clientRegistrationRepository(env));
+        }
 
 
+        @Bean
+        public AuthorizationRequestRepository<OAuth2AuthorizationRequest> authorizationRequestRepository() {
+            return new HttpSessionOAuth2AuthorizationRequestRepository();
+        }
 
+        @Bean
+        public OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> accessTokenResponseClient() {
+            return new NimbusAuthorizationCodeTokenResponseClient();
+        }
 
-    @Bean
-    public AuthorizationRequestRepository<OAuth2AuthorizationRequest> authorizationRequestRepository() {
-        return new HttpSessionOAuth2AuthorizationRequestRepository();
-    }
+        private static List<String> clients = Arrays.asList("google", "facebook");
 
-    @Bean
-    public OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> accessTokenResponseClient() {
-        return new NimbusAuthorizationCodeTokenResponseClient();
-    }
-    private static List<String> clients = Arrays.asList("google", "facebook");
+        @Bean
+        public ClientRegistrationRepository clientRegistrationRepository(Environment env) {
+            List<ClientRegistration> registrations = clients.stream()
+                    .map(c -> getRegistration(c, env))
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
 
-    @Bean
-    public ClientRegistrationRepository clientRegistrationRepository(Environment env) {
-        List<ClientRegistration> registrations = clients.stream()
-                .map(c->getRegistration(c,env))
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
+            return new InMemoryClientRegistrationRepository(registrations);
+        }
 
-        return new InMemoryClientRegistrationRepository(registrations);
-    }
+        private static String CLIENT_PROPERTY_KEY = "spring.security.oauth2.client.registration.";
 
-    private static String CLIENT_PROPERTY_KEY = "spring.security.oauth2.client.registration.";
+        @Autowired
+        private Environment env;
 
-    @Autowired
-    private Environment env;
+        private ClientRegistration getRegistration(String client, Environment env) {
+            String clientId = env.getProperty(CLIENT_PROPERTY_KEY + client + ".client-id");
 
-    private ClientRegistration getRegistration(String client, Environment env) {
-        String clientId = env.getProperty(CLIENT_PROPERTY_KEY + client + ".client-id");
+            if (clientId == null) {
+                return null;
+            }
 
-        if (clientId == null) {
+            String clientSecret = env.getProperty(CLIENT_PROPERTY_KEY + client + ".client-secret");
+            if (client.equals("google")) {
+                return CommonOAuth2Provider.GOOGLE.getBuilder(client)
+                        .clientId(clientId)
+                        .clientSecret(clientSecret)
+                        .build();
+            }
+            if (client.equals("facebook")) {
+                return CommonOAuth2Provider.FACEBOOK.getBuilder(client)
+                        .clientId(clientId)
+                        .clientSecret(clientSecret)
+                        .build();
+            }
             return null;
         }
-
-        String clientSecret = env.getProperty(CLIENT_PROPERTY_KEY + client + ".client-secret");
-        if (client.equals("google")) {
-            return CommonOAuth2Provider.GOOGLE.getBuilder(client)
-                    .clientId(clientId)
-                    .clientSecret(clientSecret)
-                    .build();
-        }
-        if (client.equals("facebook")) {
-            return CommonOAuth2Provider.FACEBOOK.getBuilder(client)
-                    .clientId(clientId)
-                    .clientSecret(clientSecret)
-                    .build();
-        }
-        return null;
-    }
- @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth)
-            throws Exception {
-        auth.authenticationProvider(authenticationProvider());
-    }
-
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider
-                = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder);
-        return authProvider;
     }
 
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(8);
+
     }
 
-}
+
+
+
+
+
+
+

@@ -1,17 +1,17 @@
 package com.firstline.procedure.scheduling.dto;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.validation.constraints.NotEmpty;
 
 public class UserDto {
 
     private String name;
 
-    @NotNull
+   // @NotNull
     @NotEmpty
     private String password;
     private String password2;
+
+
 
 
     public String getPassword2() {

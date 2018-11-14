@@ -1,5 +1,6 @@
 package com.firstline.procedure.scheduling.controller;
 
+import com.firstline.procedure.scheduling.dto.PatientDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ResolvableType;
 import org.springframework.http.HttpEntity;
@@ -14,9 +15,13 @@ import org.springframework.security.oauth2.client.registration.ClientRegistratio
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +37,20 @@ public class LoginController {
     @Autowired
     private OAuth2AuthorizedClientService authorizedClientService;
 
-    
+
+    @GetMapping("/login")
+    public String loginPage(Model model) {
+        model.addAttribute("patientDto", new PatientDto());
+        return "login";
+    }
+    @PostMapping("/login")
+    public String createPatient(@ModelAttribute @Valid PatientDto patientDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "login";
+        }
+
+        return "patient";
+    }
 
     @GetMapping("/oauth_login")
     public String getLoginPage(Model model) {
