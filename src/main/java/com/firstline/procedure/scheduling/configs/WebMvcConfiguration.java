@@ -1,14 +1,13 @@
 package com.firstline.procedure.scheduling.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -20,6 +19,15 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Autowired
     private ApplicationContext applicationContext;
+
+    @Value("${upload.path}")
+    private String uploadPath;
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/xls/**")
+                .addResourceLocations("file://" + uploadPath + "/");
+    }
 
     /*
      * STEP 1 - Create SpringResourceTemplateResolver
@@ -45,6 +53,13 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         return templateEngine;
     }
 
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(100000);
+        return multipartResolver;
+    }
+
     /*
      * STEP 3 - Register ThymeleafViewResolver
      * */
@@ -54,6 +69,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
     }
+
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {

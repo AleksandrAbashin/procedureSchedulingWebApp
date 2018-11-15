@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -33,15 +32,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-
+@Configuration
+@Transactional
+@PropertySource("classpath:application.properties")
 @EnableWebSecurity
-public class WebSecurityConfig {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Order(1)
-    @Configuration
-    @Transactional
-    @PropertySource("classpath:application.properties")
-    public static class WebSecurityBasic extends WebSecurityConfigurerAdapter {
         @Autowired
         private UserDetailsService userDetailsService;
 
@@ -153,7 +149,7 @@ public class WebSecurityConfig {
             }
             return null;
         }
-    }
+
 
 
 
