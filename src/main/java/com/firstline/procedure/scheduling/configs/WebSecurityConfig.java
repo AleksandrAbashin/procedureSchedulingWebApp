@@ -38,122 +38,120 @@ import java.util.stream.Collectors;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-        @Autowired
-        private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-        @Autowired
-        private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-        @Bean
-        public DaoAuthenticationProvider authenticationProvider() {
-            DaoAuthenticationProvider authProvider
-                    = new DaoAuthenticationProvider();
-            authProvider.setUserDetailsService(userDetailsService);
-            authProvider.setPasswordEncoder(passwordEncoder);
-            return authProvider;
-        }
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider
+                = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder);
+        return authProvider;
+    }
 
-        @Bean
-        public PasswordEncoder passwordEncoder() {
-            return new BCryptPasswordEncoder(8);
-        }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(8);
+    }
 
-        @Override
-        protected void configure(AuthenticationManagerBuilder auth)
-                throws Exception {
-            auth.authenticationProvider(authenticationProvider());
-        }
-
-
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http
-
-                    .authorizeRequests()
-                    .antMatchers("/login", "/registration","/loginFailure", "/oauth_login").permitAll()
-                    .antMatchers("/").hasRole("USER")
-                    .anyRequest().authenticated()
-                    .and()
-                    .formLogin().loginPage("/login")
-                    .and()
-                    .oauth2Login().loginPage("/oauth_login")
-                    .authorizationEndpoint()
-                    .baseUri("/oauth2/authorize-client")
-                    .authorizationRequestRepository(authorizationRequestRepository())
-                    .and()
-                    .tokenEndpoint()
-                    .accessTokenResponseClient(accessTokenResponseClient())
-                    .and()
-                    .defaultSuccessUrl("/patient")
-                    .failureUrl("/loginFailure")
-                    .and()
-                    .logout().logoutSuccessUrl("/login").permitAll()
-                    .and()
-                    .csrf().disable();
-        }
-
-        @Bean
-        public OAuth2AuthorizedClientService authorizedClientService(Environment env) {
-
-            return new InMemoryOAuth2AuthorizedClientService(
-                    clientRegistrationRepository(env));
-        }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)
+            throws Exception {
+        auth.authenticationProvider(authenticationProvider());
+    }
 
 
-        @Bean
-        public AuthorizationRequestRepository<OAuth2AuthorizationRequest> authorizationRequestRepository() {
-            return new HttpSessionOAuth2AuthorizationRequestRepository();
-        }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
 
-        @Bean
-        public OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> accessTokenResponseClient() {
-            return new NimbusAuthorizationCodeTokenResponseClient();
-        }
+                .authorizeRequests()
+                .antMatchers("/login", "/registration", "/loginFailure", "/oauth_login").permitAll()
+                .antMatchers("/").hasRole("USER")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login")
+                .and()
+                .oauth2Login().loginPage("/oauth_login")
+                .authorizationEndpoint()
+                .baseUri("/oauth2/authorize-client")
+                .authorizationRequestRepository(authorizationRequestRepository())
+                .and()
+                .tokenEndpoint()
+                .accessTokenResponseClient(accessTokenResponseClient())
+                .and()
+                .defaultSuccessUrl("/patient")
+                .failureUrl("/loginFailure")
+                .and()
+                .logout().logoutSuccessUrl("/login").permitAll()
+                .and()
+                .csrf().disable();
+    }
 
-        private static List<String> clients = Arrays.asList("google", "facebook");
+    @Bean
+    public OAuth2AuthorizedClientService authorizedClientService(Environment env) {
 
-        @Bean
-        public ClientRegistrationRepository clientRegistrationRepository(Environment env) {
-            List<ClientRegistration> registrations = clients.stream()
-                    .map(c -> getRegistration(c, env))
-                    .filter(Objects::nonNull)
-                    .collect(Collectors.toList());
+        return new InMemoryOAuth2AuthorizedClientService(
+                clientRegistrationRepository(env));
+    }
 
-            return new InMemoryClientRegistrationRepository(registrations);
-        }
 
-        private static String CLIENT_PROPERTY_KEY = "spring.security.oauth2.client.registration.";
+    @Bean
+    public AuthorizationRequestRepository<OAuth2AuthorizationRequest> authorizationRequestRepository() {
+        return new HttpSessionOAuth2AuthorizationRequestRepository();
+    }
 
-        @Autowired
-        private Environment env;
+    @Bean
+    public OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> accessTokenResponseClient() {
+        return new NimbusAuthorizationCodeTokenResponseClient();
+    }
 
-        private ClientRegistration getRegistration(String client, Environment env) {
-            String clientId = env.getProperty(CLIENT_PROPERTY_KEY + client + ".client-id");
+    private static List<String> clients = Arrays.asList("google", "facebook");
 
-            if (clientId == null) {
-                return null;
-            }
+    @Bean
+    public ClientRegistrationRepository clientRegistrationRepository(Environment env) {
+        List<ClientRegistration> registrations = clients.stream()
+                .map(c -> getRegistration(c, env))
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
 
-            String clientSecret = env.getProperty(CLIENT_PROPERTY_KEY + client + ".client-secret");
-            if (client.equals("google")) {
-                return CommonOAuth2Provider.GOOGLE.getBuilder(client)
-                        .clientId(clientId)
-                        .clientSecret(clientSecret)
-                        .build();
-            }
-            if (client.equals("facebook")) {
-                return CommonOAuth2Provider.FACEBOOK.getBuilder(client)
-                        .clientId(clientId)
-                        .clientSecret(clientSecret)
-                        .build();
-            }
+        return new InMemoryClientRegistrationRepository(registrations);
+    }
+
+    private static String CLIENT_PROPERTY_KEY = "spring.security.oauth2.client.registration.";
+
+    @Autowired
+    private Environment env;
+
+    private ClientRegistration getRegistration(String client, Environment env) {
+        String clientId = env.getProperty(CLIENT_PROPERTY_KEY + client + ".client-id");
+
+        if (clientId == null) {
             return null;
         }
 
-
-
-
+        String clientSecret = env.getProperty(CLIENT_PROPERTY_KEY + client + ".client-secret");
+        if (client.equals("google")) {
+            return CommonOAuth2Provider.GOOGLE.getBuilder(client)
+                    .clientId(clientId)
+                    .clientSecret(clientSecret)
+                    .build();
+        }
+        if (client.equals("facebook")) {
+            return CommonOAuth2Provider.FACEBOOK.getBuilder(client)
+                    .clientId(clientId)
+                    .clientSecret(clientSecret)
+                    .build();
+        }
+        return null;
     }
+
+
+}
 
 
 

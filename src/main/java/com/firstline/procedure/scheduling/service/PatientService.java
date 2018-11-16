@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface PatientService {
 
-    PatientDto createPatient(PatientDto patientDto);
+    Long createPatient(PatientDto patientDto);
 
     PatientDto getPatientById(Long id);
 

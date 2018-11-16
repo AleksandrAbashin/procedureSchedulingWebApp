@@ -14,7 +14,7 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   // @NotNull
+
     @Size(min=2, max=10)
     @Column(name = "patient_name",nullable=false)
     private String patientName;
@@ -30,10 +30,21 @@ public class Patient {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
     )
-   // @JsonInclude
     private List<Study> studies;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="patientinfo_id")
+    private PatientInfo patientInfo;
+
     public Patient() {
+    }
+
+    public PatientInfo getPatientInfo() {
+        return patientInfo;
+    }
+
+    public void setPatientInfo(PatientInfo patientInfo) {
+        this.patientInfo = patientInfo;
     }
 
     public Patient(String misha, Sex male, long id) {

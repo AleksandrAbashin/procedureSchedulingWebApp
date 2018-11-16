@@ -32,7 +32,7 @@
                 <label>Patient name:</label>
                 <input class="form-control" type="text" th:field="*{patientName}"><br>
                 <td th:if="${#fields.hasErrors('patientName')}" th:errors="*{patientName}">Name Error</td>
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your personal data with anyone
+                <small id="emailHelp" class="form-text text-muted">We'll never share your personal data with anyone
                     else.
                 </small>
         </div>
@@ -54,11 +54,10 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-   <!-- <a th:href="@{/patient/list}">return to list patients</a>-->
+
     <a th:href="@{/}">return to list patients</a>
 
 </div>
-
 
 
 <!-- Optional JavaScript -->

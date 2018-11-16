@@ -76,15 +76,14 @@ public class PatientServiceImp implements PatientService {
     }
 
     @Override
-    public PatientDto createPatient(PatientDto patientDto) {
+    public Long createPatient(PatientDto patientDto) {
         if (patientDto.getPatientName() == null) {
             throw new ThereIsNoSuchPatientNameException();
         }
 
         Patient patient = patientMapper.toPatient(patientDto);
-        patientRepository.save(patient);
 
-        return patientMapper.fromPatient(patient);
+        return patientRepository.save(patient).getId();
     }
 
     @Override

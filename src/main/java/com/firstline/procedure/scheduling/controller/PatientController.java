@@ -1,9 +1,11 @@
 package com.firstline.procedure.scheduling.controller;
 
+import com.firstline.procedure.scheduling.domain.PatientInfo;
 import com.firstline.procedure.scheduling.dto.PatientDto;
 import com.firstline.procedure.scheduling.dto.StudyDto;
-import com.firstline.procedure.scheduling.parser.ExcelPOIHelper;
+import com.firstline.procedure.scheduling.parser.ExcelService;
 import com.firstline.procedure.scheduling.service.PatientService;
+import com.firstline.procedure.scheduling.service.impl.ServiceParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -16,12 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -31,7 +30,7 @@ public class PatientController {
 
     private static int currentPage = 1;
     private static int pageSize = 5;
-    private String fileLocation;
+
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -40,7 +39,10 @@ public class PatientController {
     private PatientService patientService;
 
     @Autowired
-    ExcelPOIHelper excelPOIHelper;
+    ServiceParser serviceParser;
+
+    @Autowired
+    ExcelService excelService;
 
     @GetMapping("/patient")
     public String editorPage(Model model) {
@@ -53,49 +55,29 @@ public class PatientController {
     public String createPatient(@RequestParam("file") MultipartFile file,
                                 @ModelAttribute @Valid PatientDto patientDto,
                                 BindingResult bindingResult) throws IOException {
+
         if (bindingResult.hasErrors()) {
             return "addPatient";
         } else {
-            patientService.createPatient(patientDto);
+            serviceParser.saveExcelFile(patientDto, file, uploadPath);
         }
-
-        if(file != null && !file.getOriginalFilename().isEmpty()) {
-            File uploadDir = new File(uploadPath);
-
-            if(!uploadDir.exists()) {
-                uploadDir.mkdir();
-            }
-        }
-
-        String uuidFile = UUID.randomUUID().toString();
-        fileLocation = uuidFile + "." + file.getOriginalFilename();
-
-        file.transferTo(new File(uploadPath + "/" + fileLocation));
 
         return "addPatient";
     }
 
 
+    @GetMapping("/readPOI/{id}")
+    public String readPOI(Model model, @PathVariable Long id) throws IOException {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/readPOI")
-    public String readPOI(Model model) throws IOException {
+        List<PatientInfo> contacts = excelService.readExcel(patientService.getPatientById(id).getPatientInfo());
 
-        if (fileLocation != null) {
-            if (fileLocation.endsWith(".xlsx") || fileLocation.endsWith(".xls")) {
-                Map<Integer, List<String>> data
-                        = excelPOIHelper.readExcel(fileLocation);
-                model.addAttribute("data", data);
-            } else {
-                model.addAttribute("message", "Not a valid excel file!");
-            }
-        } else {
-            model.addAttribute("message", "File missing! Please upload an excel file.");
-        }
+        model.addAttribute("contacts", contacts);
+
         return "excel";
 
     }
 
-    @GetMapping/*("/patient/list")*/
+    @GetMapping
     public String getShotListPatients(
             Model model,
             @RequestParam("page") Optional<Integer> page,

@@ -1,5 +1,6 @@
 package com.firstline.procedure.scheduling.dto;
 
+import com.firstline.procedure.scheduling.domain.PatientInfo;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Size;
@@ -13,14 +14,16 @@ public class PatientDto {
 
     private Long id;
 
-  //  @NotNull
-    @Size(min=2, max=30)
+    @Size(min = 2, max = 30)
     private String patientName;
 
     private String patientSex;
 
     @DateTimeFormat(iso = DATE)
     private LocalDate patientDateBirth;
+
+    private PatientInfo patientInfo;
+
 
     public PatientDto(@Size(min = 2, max = 30) String patientName, String patientSex) {
         this.patientName = patientName;
@@ -34,6 +37,14 @@ public class PatientDto {
         this.studies = studies;
     }
 
+    public PatientInfo getPatientInfo() {
+        return patientInfo;
+    }
+
+    public void setPatientInfo(PatientInfo patientInfo) {
+        this.patientInfo = patientInfo;
+    }
+
     public LocalDate getPatientDateBirth() {
         return patientDateBirth;
     }
@@ -45,7 +56,7 @@ public class PatientDto {
     private List<StudyDto> studies;
 
     public PatientDto() {
-           }
+    }
 
     public List<StudyDto> getStudies() {
         return studies;
@@ -54,6 +65,7 @@ public class PatientDto {
     public void setStudies(List<StudyDto> studies) {
         this.studies = studies;
     }
+
     public Long getId() {
         return id;
     }

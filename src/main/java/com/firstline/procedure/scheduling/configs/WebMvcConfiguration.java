@@ -23,11 +23,11 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Value("${upload.path}")
     private String uploadPath;
 
-    @Override
+  /*  @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/xls/**")
                 .addResourceLocations("file://" + uploadPath + "/");
-    }
+    }*/
 
     /*
      * STEP 1 - Create SpringResourceTemplateResolver
@@ -74,8 +74,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
-        /*registry.addViewController("securedPage");
-        registry.addViewController("loginFailure");*/
+
     }
 
 
