@@ -1,5 +1,6 @@
 package com.firstline.procedure.scheduling.service.impl;
 
+import com.firstline.procedure.scheduling.domain.PatientInfo;
 import com.firstline.procedure.scheduling.exception.ThereIsNoSuchPatientNameException;
 import com.firstline.procedure.scheduling.domain.Patient;
 import com.firstline.procedure.scheduling.dto.PatientDto;
@@ -107,5 +108,11 @@ public class PatientServiceImp implements PatientService {
     @Transactional
     public PatientDto getPatientById(Long id) {
         return patientMapper.fromPatient(patientRepository.getOne(id));
+    }
+
+    @Override
+    @Transactional
+    public PatientInfo getPatientInfoByPatientId(Long id) {
+        return patientRepository.getById(id).getPatientInfo();
     }
 }

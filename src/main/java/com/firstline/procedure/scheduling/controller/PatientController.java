@@ -3,8 +3,10 @@ package com.firstline.procedure.scheduling.controller;
 import com.firstline.procedure.scheduling.domain.PatientInfo;
 import com.firstline.procedure.scheduling.dto.PatientDto;
 import com.firstline.procedure.scheduling.dto.StudyDto;
+import com.firstline.procedure.scheduling.parser.DocService;
 import com.firstline.procedure.scheduling.parser.ExcelService;
 import com.firstline.procedure.scheduling.service.PatientService;
+import com.firstline.procedure.scheduling.service.ScheduleService;
 import com.firstline.procedure.scheduling.service.impl.ServiceParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,6 +46,17 @@ public class PatientController {
     @Autowired
     ExcelService excelService;
 
+    @Autowired
+    ScheduleService scheduleService;
+
+    @GetMapping("/timeNow")
+    public String getTime(Model model) {
+        String timeNow = scheduleService.scheduleFixedRateWithInitialDelayTask();
+        model.addAttribute("timeNow", timeNow);
+        return "timeNow";
+    }
+
+
     @GetMapping("/patient")
     public String editorPage(Model model) {
         model.addAttribute("patientDto", new PatientDto());
@@ -59,19 +72,34 @@ public class PatientController {
         if (bindingResult.hasErrors()) {
             return "addPatient";
         } else {
-            serviceParser.saveExcelFile(patientDto, file, uploadPath);
+            serviceParser.saveExcelFile(patientDto, file);
         }
 
         return "addPatient";
+    }
+
+    @Autowired
+    DocService docService;
+
+    @GetMapping("/readDoc")
+    public String readDoc(Model model) throws IOException {
+
+        List<String> listInfo = docService.readDoc("read-test.docx");
+
+        model.addAttribute("listInfo", listInfo);
+
+        return "doc";
+
     }
 
 
     @GetMapping("/readPOI/{id}")
     public String readPOI(Model model, @PathVariable Long id) throws IOException {
 
-        List<PatientInfo> contacts = excelService.readExcel(patientService.getPatientById(id).getPatientInfo());
 
-        model.addAttribute("contacts", contacts);
+        List<PatientInfo> listInfo = excelService.readExcel(patientService.getPatientInfoByPatientId(id));
+
+        model.addAttribute("contacts", listInfo);
 
         return "excel";
 

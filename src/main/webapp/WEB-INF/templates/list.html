@@ -42,7 +42,8 @@
 
             <td>
                 <form th:action="@{/readPOI/} + ${patientDto.id}">
-                    <input type="submit" value="extra info patient"/>
+                    <button type="submit" class="btn btn-primary">Extra info patient</button>
+                   <!-- <input type="submit" value="extra info patient"/>-->
                 </form>
             </td>
         </tr>
@@ -52,7 +53,7 @@
         <ul class="pagination pagination-lg">
             <li class="page-item" th:if="${patientPage.totalPages > 0}"
                 th:each="pageNumber : ${pageNumbers}">
-                <a class="page-link" th:href="@{/patient/list(size=${patientPage.size}, page=${pageNumber})}"
+                <a class="page-link" th:href="@{/(size=${patientPage.size}, page=${pageNumber})}"
                    th:text=${pageNumber}
                    th:class="${pageNumber==patientPage.number + 1} ? active"></a>
             </li>

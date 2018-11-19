@@ -1,18 +1,22 @@
 package com.firstline.procedure.scheduling.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
+@EnableScheduling
 @EnableWebMvc
 @ComponentScan(basePackages = "com.firstline.procedure.scheduling")
 public class WebMvcConfiguration implements WebMvcConfigurer {
@@ -20,14 +24,6 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Value("${upload.path}")
-    private String uploadPath;
-
-  /*  @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/xls/**")
-                .addResourceLocations("file://" + uploadPath + "/");
-    }*/
 
     /*
      * STEP 1 - Create SpringResourceTemplateResolver

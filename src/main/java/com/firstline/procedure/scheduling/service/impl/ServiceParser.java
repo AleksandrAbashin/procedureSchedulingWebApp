@@ -6,6 +6,7 @@ import com.firstline.procedure.scheduling.dto.PatientDto;
 import com.firstline.procedure.scheduling.repos.PatientRepository;
 import com.firstline.procedure.scheduling.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +18,9 @@ import java.util.UUID;
 @Service
 public class ServiceParser {
 
+    @Value("${upload.path}")
+    private String uploadPath;
+
     private String fileLocation;
 
     @Autowired
@@ -26,9 +30,8 @@ public class ServiceParser {
     PatientRepository patientRepository;
 
     @Transactional
-    public void saveExcelFile(PatientDto patientDto, MultipartFile file, String uploadPath) throws IOException {
+    public void saveExcelFile(PatientDto patientDto, MultipartFile file) throws IOException {
 
-//        File uploadDir = new File(uploadPath);
         PatientInfo patientInfo = new PatientInfo();
 
 
@@ -36,8 +39,8 @@ public class ServiceParser {
         fileLocation = uuidFile + "." + uuidFile;
 
         file.transferTo(new File(uploadPath + "/" + fileLocation));
+
         patientInfo.setFileName(fileLocation);
-        patientDto.setPatientInfo(patientInfo);
 
 
         Long patientId = patientService.createPatient(patientDto);

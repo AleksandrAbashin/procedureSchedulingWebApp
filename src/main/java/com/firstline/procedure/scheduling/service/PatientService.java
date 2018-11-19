@@ -1,5 +1,6 @@
 package com.firstline.procedure.scheduling.service;
 
+import com.firstline.procedure.scheduling.domain.PatientInfo;
 import com.firstline.procedure.scheduling.dto.PatientDto;
 import com.firstline.procedure.scheduling.dto.StudyDto;
 import org.springframework.data.domain.Page;
@@ -23,5 +24,7 @@ public interface PatientService {
 
     Page<PatientDto> paginatedList(Pageable pageable);
 
-    Page<PatientDto> pagination (Pageable pageable);
+    Page<PatientDto> pagination(Pageable pageable);
+
+    PatientInfo getPatientInfoByPatientId(Long id);
 }

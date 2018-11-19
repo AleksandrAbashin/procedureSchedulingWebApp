@@ -2,13 +2,14 @@ package com.firstline.procedure.scheduling.parser.impl;
 
 import com.firstline.procedure.scheduling.domain.PatientInfo;
 import com.firstline.procedure.scheduling.parser.ExcelService;
-import com.firstline.procedure.scheduling.service.PatientInfoService;
+import com.firstline.procedure.scheduling.repos.PatientInfoRepository;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -19,14 +20,18 @@ import java.util.List;
 @Component
 public class ExcelServiceImpl implements ExcelService {
 
+    @Value("${upload.path}")
+    private String uploadPath;
+
+
     @Autowired
-    private PatientInfoService patientInfoService;
+    private PatientInfoRepository patientInfoRepository;
 
     @Override
     public List<PatientInfo> readExcel(PatientInfo patientInfo) throws IOException {
         List<PatientInfo> contacts = new ArrayList<PatientInfo>();
 
-        POIFSFileSystem fileSystem = new POIFSFileSystem(new File("/home/aleksandr/IdeaProjects/uploads/poi.xls"));
+        POIFSFileSystem fileSystem = new POIFSFileSystem(new File(uploadPath + "/" + patientInfo.getFileName()));
         HSSFWorkbook workBook = new HSSFWorkbook(fileSystem);
         HSSFSheet sheet = workBook.getSheetAt(0);
 
@@ -50,8 +55,7 @@ public class ExcelServiceImpl implements ExcelService {
 
             }
 
-            patientInfoService.createPatientInfo(patientInfo);
-            contacts.add(patientInfo);
+            contacts.add(patientInfoRepository.save(patientInfo));
 
         }
 
@@ -59,32 +63,3 @@ public class ExcelServiceImpl implements ExcelService {
 
     }
 }
-
-        /*if (workBook != null){
-            workBook.close();
-
-        Iterator<Row> rows = sheet.iterator();
-
-        if (rows.hasNext()) {
-            rows.next();
-        }
-
-        while (rows.hasNext()) {
-            HSSFRow row = (HSSFRow) rows.next();
-
-            HSSFCell addressCell = row.getCell(1);
-
-            if (addressCell != null) {
-
-                PatientInfo patientInfo = new PatientInfo();
-                patientInfo.setAddress(addressCell.getStringCellValue());
-
-                patientInfoService.createPatientInfo(patientInfo);
-                contacts.add(patientInfo);
-
-            }
-        }
-        fileSystem.close();
-        return contacts;*/
-
-
