@@ -6,12 +6,14 @@ import com.firstline.procedure.scheduling.dto.StudyDto;
 import com.firstline.procedure.scheduling.parser.DocService;
 import com.firstline.procedure.scheduling.parser.ExcelService;
 import com.firstline.procedure.scheduling.service.PatientService;
-import com.firstline.procedure.scheduling.service.impl.ScheduleService;
+import com.firstline.procedure.scheduling.service.impl.PdfItextServiceImp;
 import com.firstline.procedure.scheduling.service.impl.ServiceParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,30 +39,31 @@ public class PatientController {
     @Value("${upload.path}")
     private String uploadPath;
 
-    @Autowired
-    private PatientService patientService;
+    private final PatientService patientService;
+
+    final ServiceParser serviceParser;
+
+    final ExcelService excelService;
+
+    final PdfItextServiceImp pdfService;
 
     @Autowired
-    ServiceParser serviceParser;
-
-    @Autowired
-    ExcelService excelService;
-
-    @Autowired
-    ScheduleService scheduleService;
+    public PatientController(PatientService patientService, ServiceParser serviceParser, ExcelService excelService, PdfItextServiceImp pdfService) {
+        this.patientService = patientService;
+        this.serviceParser = serviceParser;
+        this.excelService = excelService;
+        this.pdfService = pdfService;
+    }
 
     @GetMapping("/pdf/{id}")
-    public String getTime(@PathVariable Long id) {
+    public ResponseEntity<InputStreamResource> getTime(@PathVariable Long id) {
 
         try {
-            scheduleService.pdfFromExcel(patientService.getPatientInfoByPatientId(id).getFileName());
-
-        } catch (Exception e) {
-            return "failure";
+            return pdfService.downloadPdf(id);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-
-        return "timeNow";
+        return null;
     }
 
 
