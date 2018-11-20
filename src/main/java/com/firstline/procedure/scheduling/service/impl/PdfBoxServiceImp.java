@@ -7,6 +7,7 @@ import com.firstline.procedure.scheduling.service.PdfService;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -66,14 +67,20 @@ public class PdfBoxServiceImp implements PdfService {
             HSSFSheet myWorksheet = xlsWorkbook.getSheetAt(0);
             Iterator<Row> rowIterator = myWorksheet.iterator();
 
+
             PDDocument document = new PDDocument();
-            PDPage page = new PDPage();
+            PDPage page = new PDPage(PDRectangle.A4);
             document.addPage(page);
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
-            contentStream.moveTo(-100,-700);
-            contentStream.setFont(PDType1Font.COURIER, 12);
+        //    contentStream.moveTo(-100,-700);
+            PDType1Font font = PDType1Font.COURIER;
+            contentStream.setFont(font, 12);
             contentStream.beginText();
+            contentStream.newLineAtOffset(10, 700);
+         //   contentStream.moveTo();
 
+
+            float stringWidth = font.getStringWidth("");
 
             while (rowIterator.hasNext()) {
                 Row row = rowIterator.next();
@@ -83,11 +90,14 @@ public class PdfBoxServiceImp implements PdfService {
                     if (cell.getCellType() == CellType.NUMERIC) {
 
                         contentStream.showText(Double.toString(cell.getNumericCellValue()));
-                    } else {
+                        contentStream.newLineAtOffset(-120, -20);
+                    } else if(!cell.getStringCellValue().isEmpty()) {
                         contentStream.showText(cell.getStringCellValue());
+                        contentStream.newLineAtOffset(120, 0);
                     }
 
                 }
+
             }
 
             contentStream.endText();
