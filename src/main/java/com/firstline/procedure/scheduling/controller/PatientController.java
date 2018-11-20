@@ -6,7 +6,7 @@ import com.firstline.procedure.scheduling.dto.StudyDto;
 import com.firstline.procedure.scheduling.parser.DocService;
 import com.firstline.procedure.scheduling.parser.ExcelService;
 import com.firstline.procedure.scheduling.service.PatientService;
-import com.firstline.procedure.scheduling.service.ScheduleService;
+import com.firstline.procedure.scheduling.service.impl.ScheduleService;
 import com.firstline.procedure.scheduling.service.impl.ServiceParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,10 +49,17 @@ public class PatientController {
     @Autowired
     ScheduleService scheduleService;
 
-    @GetMapping("/timeNow")
-    public String getTime(Model model) {
-        String timeNow = scheduleService.scheduleFixedRateWithInitialDelayTask();
-        model.addAttribute("timeNow", timeNow);
+    @GetMapping("/pdf/{id}")
+    public String getTime(@PathVariable Long id) {
+
+        try {
+            scheduleService.pdfFromExcel(patientService.getPatientInfoByPatientId(id).getFileName());
+
+        } catch (Exception e) {
+            return "failure";
+        }
+
+
         return "timeNow";
     }
 
@@ -94,12 +101,15 @@ public class PatientController {
 
 
     @GetMapping("/readPOI/{id}")
-    public String readPOI(Model model, @PathVariable Long id) throws IOException {
+    public String readPOI(Model model, @PathVariable Long id) {
 
+        try {
+            List<PatientInfo> listInfo = excelService.readExcel(patientService.getPatientInfoByPatientId(id));
+            model.addAttribute("contacts", listInfo);
 
-        List<PatientInfo> listInfo = excelService.readExcel(patientService.getPatientInfoByPatientId(id));
-
-        model.addAttribute("contacts", listInfo);
+        } catch (Exception e) {
+            return "failure";
+        }
 
         return "excel";
 

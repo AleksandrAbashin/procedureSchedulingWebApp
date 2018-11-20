@@ -46,6 +46,12 @@
                    <!-- <input type="submit" value="extra info patient"/>-->
                 </form>
             </td>
+            <td>
+                <form th:action="@{/pdf/} + ${patientDto.id}">
+                    <button type="submit" class="btn btn-danger">PDF file</button>
+                    <!-- <input type="submit" value="extra info patient"/>-->
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
