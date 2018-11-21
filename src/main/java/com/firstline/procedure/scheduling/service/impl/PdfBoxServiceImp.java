@@ -20,7 +20,6 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -28,7 +27,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
-@Service
+@Service("pdfBox")
 public class PdfBoxServiceImp implements PdfService {
     @Value("${upload.path}")
     private String uploadPath;
@@ -47,7 +46,7 @@ public class PdfBoxServiceImp implements PdfService {
     public ResponseEntity<InputStreamResource> downloadPdf(Long id) throws IOException {
         String fileName = patientRepository.getById(id).getPatientInfo().getFileName();
 
-        File file = new File(uploadPath + "/" + fileName + "_info.pdf");
+        File file = new File(uploadPath + "/" + fileName + "_infoBox.pdf");
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
         return ResponseEntity.ok()
@@ -58,55 +57,46 @@ public class PdfBoxServiceImp implements PdfService {
     }
 
     @Override
-    @Scheduled(cron = "*/5 * * * * ?")
+   // @Scheduled(cron = "*/15 * * * * ?")
     public void pdfFromExcel() throws Exception {
         for (PatientInfo patientInfo : patientInfoRepository.findAll()
                 ) {
-            FileInputStream inputDocument = new FileInputStream(new File(uploadPath + "/" + patientInfo.getFileName()));
-            HSSFWorkbook xlsWorkbook = new HSSFWorkbook(inputDocument);
-            HSSFSheet myWorksheet = xlsWorkbook.getSheetAt(0);
-            Iterator<Row> rowIterator = myWorksheet.iterator();
+            try (FileInputStream inputDocument =
+                         new FileInputStream(new File(uploadPath + "/" + patientInfo.getFileName()));
+                 HSSFWorkbook xlsWorkbook = new HSSFWorkbook(inputDocument);
+                 PDDocument document = new PDDocument()
+            ) {
+                HSSFSheet myWorksheet = xlsWorkbook.getSheetAt(0);
+                Iterator<Row> rowIterator = myWorksheet.iterator();
+                PDPage page = new PDPage(PDRectangle.A4);
+                document.addPage(page);
+                PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
+                PDType1Font font = PDType1Font.COURIER;
+                contentStream.setFont(font, 12);
+                contentStream.beginText();
+                contentStream.newLineAtOffset(100, 700);
+                //    float stringWidth = font.getStringWidth("");
+                while (rowIterator.hasNext()) {
+                    Row row = rowIterator.next();
+                    Iterator<Cell> cellIterator = row.cellIterator();
+                    while (cellIterator.hasNext()) {
+                        Cell cell = cellIterator.next();
+                        if (cell.getCellType() == CellType.NUMERIC) {
 
-            PDDocument document = new PDDocument();
-            PDPage page = new PDPage(PDRectangle.A4);
-            document.addPage(page);
-            PDPageContentStream contentStream = new PDPageContentStream(document, page);
-        //    contentStream.moveTo(-100,-700);
-            PDType1Font font = PDType1Font.COURIER;
-            contentStream.setFont(font, 12);
-            contentStream.beginText();
-            contentStream.newLineAtOffset(10, 700);
-         //   contentStream.moveTo();
-
-
-            float stringWidth = font.getStringWidth("");
-
-            while (rowIterator.hasNext()) {
-                Row row = rowIterator.next();
-                Iterator<Cell> cellIterator = row.cellIterator();
-                while (cellIterator.hasNext()) {
-                    Cell cell = cellIterator.next();
-                    if (cell.getCellType() == CellType.NUMERIC) {
-
-                        contentStream.showText(Double.toString(cell.getNumericCellValue()));
-                        contentStream.newLineAtOffset(-120, -20);
-                    } else if(!cell.getStringCellValue().isEmpty()) {
-                        contentStream.showText(cell.getStringCellValue());
-                        contentStream.newLineAtOffset(120, 0);
+                            contentStream.showText(Double.toString(cell.getNumericCellValue()));
+                            contentStream.newLineAtOffset(-250, -20);
+                        } else if (!cell.getStringCellValue().isEmpty()) {
+                            contentStream.showText(cell.getStringCellValue());
+                            contentStream.newLineAtOffset(250, 0);
+                        }
                     }
-
                 }
+                contentStream.endText();
+                contentStream.close();
+                document.save(uploadPath + "/" + patientInfo.getFileName() + "_infoBox.pdf");
 
             }
-
-            contentStream.endText();
-            contentStream.close();
-
-            document.save(uploadPath + "/" + patientInfo.getFileName() + "_infoBox.pdf");
-            document.close();
-
         }
     }
-
 }

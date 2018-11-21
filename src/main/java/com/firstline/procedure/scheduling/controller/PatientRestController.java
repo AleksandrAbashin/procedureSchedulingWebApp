@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@org.springframework.web.bind.annotation.RestController
+@RestController
 @RequestMapping(path = "/rest")
-public class RestController {
+public class PatientRestController {
+
+    final PatientService patientService;
 
     @Autowired
-    PatientService patientService;
+    public PatientRestController(PatientService patientService) {
+        this.patientService = patientService;
+    }
 
     @ApiOperation(value = "return list patients")
     @GetMapping("/list")

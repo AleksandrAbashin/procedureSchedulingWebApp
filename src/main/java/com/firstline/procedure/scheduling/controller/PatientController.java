@@ -6,9 +6,10 @@ import com.firstline.procedure.scheduling.dto.StudyDto;
 import com.firstline.procedure.scheduling.parser.DocService;
 import com.firstline.procedure.scheduling.parser.ExcelService;
 import com.firstline.procedure.scheduling.service.PatientService;
-import com.firstline.procedure.scheduling.service.impl.PdfItextServiceImp;
+import com.firstline.procedure.scheduling.service.PdfService;
 import com.firstline.procedure.scheduling.service.impl.ServiceParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.domain.Page;
@@ -45,22 +46,24 @@ public class PatientController {
 
     final ExcelService excelService;
 
-    final PdfItextServiceImp pdfService;
+    @Autowired
+    @Qualifier("pdfBox")
+    private PdfService pdfService;
 
     @Autowired
-    public PatientController(PatientService patientService, ServiceParser serviceParser, ExcelService excelService, PdfItextServiceImp pdfService) {
+    public PatientController(PatientService patientService, ServiceParser serviceParser, ExcelService excelService) {
         this.patientService = patientService;
         this.serviceParser = serviceParser;
         this.excelService = excelService;
-        this.pdfService = pdfService;
     }
 
     @GetMapping("/pdf/{id}")
     public ResponseEntity<InputStreamResource> getTime(@PathVariable Long id) {
 
         try {
+            pdfService.pdfFromExcel();
             return pdfService.downloadPdf(id);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

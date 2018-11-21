@@ -20,7 +20,6 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -29,7 +28,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
-@Service
+@Service("itextPdf")
 public class PdfItextServiceImp implements PdfService {
 
     @Value("${upload.path}")
@@ -60,7 +59,7 @@ public class PdfItextServiceImp implements PdfService {
     }
 
     @Override
-    @Scheduled(cron = "*/5 * * * * ?")
+  //  @Scheduled(cron = "*/5 * * * * ?")
     public void pdfFromExcel() throws Exception {
 
         for (PatientInfo patientInfo : patientInfoRepository.findAll()
