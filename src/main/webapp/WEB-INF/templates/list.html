@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
-       <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -50,7 +50,7 @@
             </td>
             <td>
                 <form th:action="@{/pdf/} + ${patientDto.id}">
-                    <button type="submit" class="btn btn-danger">PDF file</button>
+                    <button type="submit" class="btn btn-success">PDF file</button>
                 </form>
             </td>
         </tr>
@@ -58,22 +58,19 @@
     </table>
 </div>
 <div>
-    <nav>
-        <ul class="pagination pagination-lg">
 
-            <li class="page-item disabled" th:if="${patientPage.totalPages > 0}"
-                th:each="pageNumber : ${pageNumbers}">
-
-                <a class="page-link" th:href="@{/(size=${patientPage.size}, page=${pageNumber})}"
-                   th:text=${pageNumber}
-                   th:class="${pageNumber==patientPage.number + 1} ? active"></a>
-            </li>
-        </ul>
-    </nav>
-
+    <ul class="nav nav-pills">
+        <li class="nav-item" th:if="${patientPage.totalPages > 0}"
+            th:each="pageNumber : ${pageNumbers}">
+            <a class="nav-link"
+               th:href="@{/(size=${patientPage.size}, page=${pageNumber})}"
+               th:text=${pageNumber}
+               th:classappend="${pageNumber==patientPage.number + 1} ? 'active':''"></a>
+        </li>
+    </ul>
     <a th:href="@{/patient}">Add New Patient</a>
     <form th:action="@{/logout}" method="post">
-        <button type="submit" class="btn btn-primary">Sign Out</button>
+        <button type="submit" class="btn btn-danger">Sign Out</button>
     </form>
     </hr>
 </div>
