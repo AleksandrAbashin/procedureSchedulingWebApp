@@ -18,9 +18,12 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @ComponentScan(basePackages = "com.firstline.procedure.scheduling")
 public class WebMvcConfiguration implements WebMvcConfigurer {
 
-    @Autowired
-    private ApplicationContext applicationContext;
+    private final ApplicationContext applicationContext;
 
+    @Autowired
+    public WebMvcConfiguration(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+    }
 
     /*
      * STEP 1 - Create SpringResourceTemplateResolver
@@ -46,13 +49,6 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         return templateEngine;
     }
 
-    @Bean(name = "multipartResolver")
-    public CommonsMultipartResolver multipartResolver() {
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(100000);
-        return multipartResolver;
-    }
-
     /*
      * STEP 3 - Register ThymeleafViewResolver
      * */
@@ -63,6 +59,12 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         registry.viewResolver(resolver);
     }
 
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(100000);
+        return multipartResolver;
+    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -75,9 +77,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
 
-        registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+       /* registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");*/
     }
-
 
 }

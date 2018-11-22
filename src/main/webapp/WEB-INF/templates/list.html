@@ -17,16 +17,15 @@
             crossorigin="anonymous"></script>
 
     <div class="alert alert-primary" role="alert">
-        List Patients
+        <h1 th:text="#{overview.message}"></h1>
     </div>
 </head>
 <body>
 
 <div class="table-cell">
-    <h1 th:text="#{overview.message}"></h1>
     <table class="table">
         <thead>
-        <tr>
+        <tr class="p-3 mb-2 bg-primary text-white">
             <th scope="col">Name</th>
             <th scope="col">Sex</th>
             <th scope="col">Date Birth</th>

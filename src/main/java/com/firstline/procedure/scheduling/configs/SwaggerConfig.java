@@ -22,14 +22,14 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.firstline.procedure.scheduling"))
-                .paths(regex("/rest.*"))
+                .paths(regex("/api.*"))
                 .build()
                 .apiInfo(metaInfo());
     }
 
     private ApiInfo metaInfo() {
 
-        ApiInfo apiInfo = new ApiInfo(
+        return new ApiInfo(
                 "Spring Boot Rest service API",
                 "Service for applications",
                 "1.0",
@@ -39,9 +39,7 @@ public class SwaggerConfig {
                         "abashin.aleksandr.aa@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/",
-                Collections.EMPTY_LIST
+                Collections.emptyList()
         );
-
-        return apiInfo;
     }
 }
