@@ -1,5 +1,5 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                  xmlns:gs="http://firstline.com/procedure/scheduling/soap">
+                  xmlns:gs="http://firstline.com/soap">
     <soapenv:Header/>
     <soapenv:Body>
         <gs:getCountryRequest>

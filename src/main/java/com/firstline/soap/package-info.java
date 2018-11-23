@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://firstline.com/procedure/scheduling/soap", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.firstline.procedure.scheduling.soap;
+package com.firstline.soap;

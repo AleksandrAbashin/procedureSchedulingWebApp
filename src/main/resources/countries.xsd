@@ -1,5 +1,7 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://firstline.com/procedure/scheduling/soap"
-           targetNamespace="http://firstline.com/procedure/scheduling/soap" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://firstline.com/soap"
+           targetNamespace="http://firstline.com/soap"
+           elementFormDefault="qualified">
 
     <xs:element name="getCountryRequest">
         <xs:complexType>

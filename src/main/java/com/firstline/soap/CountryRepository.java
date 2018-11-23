@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.soap;
+package com.firstline.soap;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;

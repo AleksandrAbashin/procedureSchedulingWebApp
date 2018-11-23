@@ -2,7 +2,7 @@ package com.firstline.procedure.scheduling.configs.soap;
 
 import org.springframework.ws.transport.http.support.AbstractAnnotationConfigMessageDispatcherServletInitializer;
 
-public class SoapMvcConfiguration extends
+public class SoapInitializer extends
         AbstractAnnotationConfigMessageDispatcherServletInitializer {
 
     @Override
@@ -17,7 +17,7 @@ public class SoapMvcConfiguration extends
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[]{SoapServiceConfiguration.class};
+        return new Class<?>[]{SoapConfiguration.class};
     }
 
     @Override

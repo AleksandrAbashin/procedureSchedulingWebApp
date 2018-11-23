@@ -6,7 +6,7 @@
 //
 
 
-package com.firstline.procedure.scheduling.soap;
+package com.firstline.soap;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

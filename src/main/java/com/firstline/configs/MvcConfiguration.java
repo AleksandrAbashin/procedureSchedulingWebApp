@@ -16,12 +16,12 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @EnableScheduling
 @EnableWebMvc
 @ComponentScan(basePackages = "com.firstline.procedure.scheduling")
-public class WebMvcConfiguration implements WebMvcConfigurer {
+public class MvcConfiguration implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
 
     @Autowired
-    public WebMvcConfiguration(ApplicationContext applicationContext) {
+    public MvcConfiguration(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 

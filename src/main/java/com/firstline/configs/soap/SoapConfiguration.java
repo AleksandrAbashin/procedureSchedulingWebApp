@@ -12,8 +12,8 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-@ComponentScan(basePackageClasses = { SoapServiceConfiguration.class })
-public class SoapServiceConfiguration extends WsConfigurerAdapter {
+@ComponentScan(basePackageClasses = { SoapConfiguration.class })
+public class SoapConfiguration extends WsConfigurerAdapter {
 
 
     @Bean
