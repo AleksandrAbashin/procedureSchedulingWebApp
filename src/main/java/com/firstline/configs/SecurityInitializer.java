@@ -2,15 +2,13 @@ package com.firstline.configs;
 
 
 /*
-public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer implements Order {
-    @Override
-    public int value() {
-        return 2;
-    }
+public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer  {
 
     @Override
-    public Class<? extends Annotation> annotationType() {
-        return null;
+    protected void beforeSpringSecurityFilterChain(ServletContext servletContext) {
+        insertFilters(servletContext, new MultipartFilter());
     }
-}*/
 
+}
+
+*/

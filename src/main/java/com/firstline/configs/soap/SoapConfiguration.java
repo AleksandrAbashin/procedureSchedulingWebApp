@@ -13,7 +13,7 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-@ComponentScan(basePackageClasses = { SoapConfiguration.class })
+@ComponentScan(basePackages = "com.firstline")
 public class SoapConfiguration extends WsConfigurerAdapter {
 
 

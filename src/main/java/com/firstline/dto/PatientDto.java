@@ -35,6 +35,11 @@ public class PatientDto {
         this.studies = studies;
     }
 
+    public PatientDto(String name) {
+        this.patientName = name;
+    }
+
+
 
     public LocalDate getPatientDateBirth() {
         return patientDateBirth;

@@ -1,27 +1,14 @@
 package com.firstline.configs.soap;
 
-import org.springframework.core.annotation.Order;
 import org.springframework.ws.transport.http.support.AbstractAnnotationConfigMessageDispatcherServletInitializer;
-
-import java.lang.annotation.Annotation;
 
 
 public class SoapInitializer extends
-        AbstractAnnotationConfigMessageDispatcherServletInitializer
-implements Order {
-    @Override
-    public int value() {
-        return 0;
-    }
+        AbstractAnnotationConfigMessageDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[0];
-    }
-
-    @Override
-    protected String getServletName() {
-        return "soap";
     }
 
     @Override
@@ -34,8 +21,11 @@ implements Order {
         return new String[]{"/ws/*"};
     }
 
+
     @Override
-    public Class<? extends Annotation> annotationType() {
-        return null;
+    protected String getServletName() {
+        return "soap";
     }
+
+
 }

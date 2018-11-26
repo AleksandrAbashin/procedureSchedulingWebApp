@@ -5,5 +5,5 @@
 // Generated on: 2018.11.22 at 01:39:37 PM MSK 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://firstline.com/procedure/scheduling/soap", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://firstline.com/soap", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.firstline.soap;
