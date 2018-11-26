@@ -33,7 +33,7 @@ public class CountryEndpoint {
         GetCountryResponse response = new GetCountryResponse();
         response.setCountry(countryRepository.findCountry(request.getName()));
 
-        PatientDto patientDto = new PatientDto(request.getName());
+        PatientDto patientDto = new PatientDto(request.getName(),request.getNSex());
         patientService.createPatient(patientDto);
 
         return response;

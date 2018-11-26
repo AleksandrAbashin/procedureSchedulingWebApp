@@ -7,6 +7,7 @@ import com.firstline.parser.DocService;
 import com.firstline.parser.ExcelService;
 import com.firstline.service.PatientService;
 import com.firstline.service.PdfService;
+import com.firstline.service.impl.Pdf;
 import com.firstline.service.impl.ServiceParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -46,15 +47,14 @@ public class PatientController {
 
     final ExcelService excelService;
 
-    @Autowired
-    @Qualifier("pdfBox")
-    private PdfService pdfService;
+    private final PdfService pdfService;
 
     @Autowired
-    public PatientController(PatientService patientService, ServiceParser serviceParser, ExcelService excelService) {
+    public PatientController(PatientService patientService, ServiceParser serviceParser, ExcelService excelService, @Qualifier("pdfBox") PdfService pdfService) {
         this.patientService = patientService;
         this.serviceParser = serviceParser;
         this.excelService = excelService;
+        this.pdfService = pdfService;
     }
 
     @GetMapping("/pdf/{id}")
@@ -62,7 +62,7 @@ public class PatientController {
 
         try {
             pdfService.pdfFromExcel();
-            return pdfService.downloadPdf(id);
+            return pdfService.downloadPdf(id,Pdf.PDF_BOX);
         } catch (Exception e) {
             e.printStackTrace();
         }

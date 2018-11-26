@@ -3,6 +3,7 @@ package com.firstline.service.impl;
 import com.firstline.domain.PatientInfo;
 import com.firstline.repos.PatientInfoRepository;
 import com.firstline.repos.PatientRepository;
+import com.firstline.service.PdfDownloadService;
 import com.firstline.service.PdfService;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -17,8 +18,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -37,27 +36,21 @@ public class PdfBoxServiceImp implements PdfService {
     final PatientRepository patientRepository;
 
     @Autowired
+    PdfDownloadService pdfDownloadService;
+
+    @Autowired
     public PdfBoxServiceImp(PatientInfoRepository patientInfoRepository, PatientRepository patientRepository) {
         this.patientInfoRepository = patientInfoRepository;
         this.patientRepository = patientRepository;
     }
 
     @Override
-    public ResponseEntity<InputStreamResource> downloadPdf(Long id) throws IOException {
-        String fileName = patientRepository.getById(id).getPatientInfo().getFileName();
-
-        File file = new File(uploadPath + "/" + fileName + "_infoBox.pdf");
-        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
-
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment;filename=" + file.getName())
-                .contentType(MediaType.APPLICATION_PDF).contentLength(file.length())
-                .body(resource);
+    public ResponseEntity<InputStreamResource> downloadPdf(Long id, Pdf pdf) throws IOException {
+        return pdfDownloadService.download(id, pdf);
     }
 
     @Override
-   // @Scheduled(cron = "*/15 * * * * ?")
+    // @Scheduled(cron = "*/15 * * * * ?")
     public void pdfFromExcel() throws Exception {
         for (PatientInfo patientInfo : patientInfoRepository.findAll()
                 ) {
@@ -76,7 +69,7 @@ public class PdfBoxServiceImp implements PdfService {
                 contentStream.setFont(font, 12);
                 contentStream.beginText();
                 contentStream.newLineAtOffset(100, 700);
-                //    float stringWidth = font.getStringWidth("");
+
                 while (rowIterator.hasNext()) {
                     Row row = rowIterator.next();
                     Iterator<Cell> cellIterator = row.cellIterator();
@@ -94,7 +87,7 @@ public class PdfBoxServiceImp implements PdfService {
                 }
                 contentStream.endText();
                 contentStream.close();
-                document.save(uploadPath + "/" + patientInfo.getFileName() + "_infoBox.pdf");
+                document.save(uploadPath + "/" + patientInfo.getFileName() + Pdf.PDF_BOX.toString());
 
             }
         }

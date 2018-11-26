@@ -1,12 +1,14 @@
 package com.firstline.service;
 
+import com.firstline.service.impl.Pdf;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
 
 public interface PdfService {
-    public ResponseEntity<InputStreamResource> downloadPdf(Long id) throws IOException;
+
     public void pdfFromExcel() throws Exception;
+    public ResponseEntity<InputStreamResource> downloadPdf(Long id, Pdf pdf) throws IOException;
 
 }

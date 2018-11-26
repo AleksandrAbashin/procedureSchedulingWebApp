@@ -3,7 +3,8 @@
     <soapenv:Header/>
     <soapenv:Body>
         <gs:getCountryRequest>
-            <gs:name>Spain</gs:name>
+            <gs:name>Aleks</gs:name>
+            <gs:sex>MALE</gs:sex>
         </gs:getCountryRequest>
     </soapenv:Body>
 </soapenv:Envelope>

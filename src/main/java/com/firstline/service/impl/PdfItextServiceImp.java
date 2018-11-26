@@ -3,6 +3,7 @@ package com.firstline.service.impl;
 import com.firstline.domain.PatientInfo;
 import com.firstline.repos.PatientInfoRepository;
 import com.firstline.repos.PatientRepository;
+import com.firstline.service.PdfDownloadService;
 import com.firstline.service.PdfService;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Phrase;
@@ -17,8 +18,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -34,9 +33,12 @@ public class PdfItextServiceImp implements PdfService {
     @Value("${upload.path}")
     private String uploadPath;
 
-    final PatientInfoRepository patientInfoRepository;
+    private final PatientInfoRepository patientInfoRepository;
 
-    final PatientRepository patientRepository;
+    private final PatientRepository patientRepository;
+
+    @Autowired
+    PdfDownloadService pdfDownloadService;
 
     @Autowired
     public PdfItextServiceImp(PatientInfoRepository patientInfoRepository, PatientRepository patientRepository) {
@@ -45,21 +47,12 @@ public class PdfItextServiceImp implements PdfService {
     }
 
     @Override
-    public ResponseEntity<InputStreamResource> downloadPdf(Long id) throws IOException {
-        String fileName = patientRepository.getById(id).getPatientInfo().getFileName();
-
-        File file = new File(uploadPath + "/" + fileName + "_info.pdf");
-        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
-
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment;filename=" + file.getName())
-                .contentType(MediaType.APPLICATION_PDF).contentLength(file.length())
-                .body(resource);
+    public ResponseEntity<InputStreamResource> downloadPdf(Long id, Pdf pdf) throws IOException {
+        return pdfDownloadService.download(id,pdf);
     }
 
     @Override
-  //  @Scheduled(cron = "*/5 * * * * ?")
+    //  @Scheduled(cron = "*/5 * * * * ?")
     public void pdfFromExcel() throws Exception {
 
         for (PatientInfo patientInfo : patientInfoRepository.findAll()
@@ -70,7 +63,7 @@ public class PdfItextServiceImp implements PdfService {
             Iterator<Row> rowIterator = myWorksheet.iterator();
 
             Document filePdf = new Document();
-            PdfWriter.getInstance(filePdf, new FileOutputStream(uploadPath + "/" + patientInfo.getFileName() + "_info.pdf"));
+            PdfWriter.getInstance(filePdf, new FileOutputStream(uploadPath + "/" + patientInfo.getFileName() + Pdf.ITEXT.toString()));
             filePdf.open();
 
             PdfPTable myTable = new PdfPTable(2);
@@ -96,6 +89,8 @@ public class PdfItextServiceImp implements PdfService {
             inputDocument.close();
         }
     }
+
+
 }
 
 
