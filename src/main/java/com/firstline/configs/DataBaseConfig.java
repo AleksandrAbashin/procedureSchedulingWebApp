@@ -1,7 +1,9 @@
 package com.firstline.configs;
 
+import org.flywaydb.core.Flyway;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -23,8 +25,18 @@ import java.util.Properties;
 @PropertySource(value = {"classpath:application.properties"})
 public class DataBaseConfig {
 
+    @Bean(initMethod = "migrate")
+    protected Flyway flyway() {
+        Flyway flyway = new Flyway();
+        flyway.setInitOnMigrate(true);
+        flyway.setLocations("classpath:db/migration");
+        flyway.setDataSource(dataSource());
+
+        return flyway;
+    }
 
     @Bean
+    @DependsOn(value = "flyway")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
@@ -68,7 +80,7 @@ public class DataBaseConfig {
         Properties properties = new Properties();
         properties.setProperty(
                 "hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-         properties.setProperty("hibernate.hbm2ddl.auto", "create");
+         properties.setProperty("hibernate.hbm2ddl.auto", "validate");
        // properties.setProperty("hibernate.hbm2ddl.auto", "update");
 
         properties.setProperty("hibernate.show_sql", "true");

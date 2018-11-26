@@ -1,19 +1,17 @@
 package com.firstline.service.impl;
 
 public enum Pdf {
-    PDF_BOX,
-    ITEXT;
+    PDF_BOX("_infoBox.pdf"),
+    ITEXT("_info.pdf");
 
-
-    @Override
-    public String toString() {
-        switch (this) {
-            case PDF_BOX:
-                return "_infoBox.pdf";
-            case ITEXT:
-                return "_info.pdf";
-            default:
-                throw new IllegalArgumentException();
-        }
+    Pdf(String path) {
+        this.path = path;
     }
+
+    private String path;
+
+    public String getPath() {
+        return path;
+    }
+
 }

@@ -52,6 +52,17 @@ public class PdfBoxServiceImp implements PdfService {
     @Override
     // @Scheduled(cron = "*/15 * * * * ?")
     public void pdfFromExcel() throws Exception {
+
+        final int SheetOffsetX = 100;
+        final int SheetOffsetY = 700;
+        final int FontSize = 12;
+
+        final int TableColumnOffsetX = -250;
+        final int TableColumnOffsetY = -20;
+
+        final int TableColumnNumericOffsetX = 250;
+        final int TableColumnNumericOffsetY = 0;
+
         for (PatientInfo patientInfo : patientInfoRepository.findAll()
                 ) {
             try (FileInputStream inputDocument =
@@ -60,16 +71,16 @@ public class PdfBoxServiceImp implements PdfService {
                  PDDocument document = new PDDocument()
             ) {
                 HSSFSheet myWorksheet = xlsWorkbook.getSheetAt(0);
-                Iterator<Row> rowIterator = myWorksheet.iterator();
                 PDPage page = new PDPage(PDRectangle.A4);
                 document.addPage(page);
                 PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
                 PDType1Font font = PDType1Font.COURIER;
-                contentStream.setFont(font, 12);
+                contentStream.setFont(font, FontSize);
                 contentStream.beginText();
-                contentStream.newLineAtOffset(100, 700);
+                contentStream.newLineAtOffset(SheetOffsetX, SheetOffsetX);
 
+                Iterator<Row> rowIterator = myWorksheet.iterator();
                 while (rowIterator.hasNext()) {
                     Row row = rowIterator.next();
                     Iterator<Cell> cellIterator = row.cellIterator();
@@ -78,10 +89,10 @@ public class PdfBoxServiceImp implements PdfService {
                         if (cell.getCellType() == CellType.NUMERIC) {
 
                             contentStream.showText(Double.toString(cell.getNumericCellValue()));
-                            contentStream.newLineAtOffset(-250, -20);
+                            contentStream.newLineAtOffset(TableColumnOffsetX, TableColumnOffsetY);
                         } else if (!cell.getStringCellValue().isEmpty()) {
                             contentStream.showText(cell.getStringCellValue());
-                            contentStream.newLineAtOffset(250, 0);
+                            contentStream.newLineAtOffset(TableColumnNumericOffsetX, TableColumnNumericOffsetY);
                         }
                     }
                 }
@@ -92,4 +103,5 @@ public class PdfBoxServiceImp implements PdfService {
             }
         }
     }
+
 }

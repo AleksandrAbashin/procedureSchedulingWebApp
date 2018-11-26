@@ -27,7 +27,7 @@ public class PdfDownloadServiceImp implements PdfDownloadService {
 
         String fileName = patientRepository.getById(id).getPatientInfo().getFileName();
 
-        File file = new File(uploadPath + "/" + fileName + pdf.toString());
+        File file = new File(uploadPath + "/" + fileName + pdf.getPath());
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
         return ResponseEntity.ok()

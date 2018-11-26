@@ -48,7 +48,7 @@ public class PdfItextServiceImp implements PdfService {
 
     @Override
     public ResponseEntity<InputStreamResource> downloadPdf(Long id, Pdf pdf) throws IOException {
-        return pdfDownloadService.download(id,pdf);
+        return pdfDownloadService.download(id, pdf);
     }
 
     @Override
@@ -57,36 +57,33 @@ public class PdfItextServiceImp implements PdfService {
 
         for (PatientInfo patientInfo : patientInfoRepository.findAll()
                 ) {
-            FileInputStream inputDocument = new FileInputStream(new File(uploadPath + "/" + patientInfo.getFileName()));
-            HSSFWorkbook xlsWorkbook = new HSSFWorkbook(inputDocument);
-            HSSFSheet myWorksheet = xlsWorkbook.getSheetAt(0);
-            Iterator<Row> rowIterator = myWorksheet.iterator();
+            try (FileInputStream inputDocument = new FileInputStream(new File(uploadPath + "/" + patientInfo.getFileName()));
+                 HSSFWorkbook xlsWorkbook = new HSSFWorkbook(inputDocument)) {
+                HSSFSheet myWorksheet = xlsWorkbook.getSheetAt(0);
+                Document filePdf = new Document();
+                PdfWriter.getInstance(filePdf, new FileOutputStream(uploadPath + "/" + patientInfo.getFileName() + Pdf.ITEXT.toString()));
+                filePdf.open();
 
-            Document filePdf = new Document();
-            PdfWriter.getInstance(filePdf, new FileOutputStream(uploadPath + "/" + patientInfo.getFileName() + Pdf.ITEXT.toString()));
-            filePdf.open();
+                PdfPTable myTable = new PdfPTable(2);
+                PdfPCell tableCell;
 
-            PdfPTable myTable = new PdfPTable(2);
-            PdfPCell tableCell;
-            while (rowIterator.hasNext()) {
-                Row row = rowIterator.next();
-                Iterator<Cell> cellIterator = row.cellIterator();
-                while (cellIterator.hasNext()) {
-                    Cell cell = cellIterator.next();
-                    if (cell.getCellType() == CellType.NUMERIC) {
-                        tableCell = new PdfPCell(new Phrase(Double.toString(cell.getNumericCellValue())));
-                    } else {
-                        tableCell = new PdfPCell(new Phrase(cell.getStringCellValue()));
+                Iterator<Row> rowIterator = myWorksheet.iterator();
+                while (rowIterator.hasNext()) {
+                    Row row = rowIterator.next();
+                    Iterator<Cell> cellIterator = row.cellIterator();
+                    while (cellIterator.hasNext()) {
+                        Cell cell = cellIterator.next();
+                        if (cell.getCellType() == CellType.NUMERIC) {
+                            tableCell = new PdfPCell(new Phrase(Double.toString(cell.getNumericCellValue())));
+                        } else {
+                            tableCell = new PdfPCell(new Phrase(cell.getStringCellValue()));
+                        }
+                        myTable.addCell(tableCell);
                     }
-                    myTable.addCell(tableCell);
-
                 }
+                filePdf.add(myTable);
+                filePdf.close();
             }
-
-            filePdf.add(myTable);
-            filePdf.close();
-
-            inputDocument.close();
         }
     }
 
