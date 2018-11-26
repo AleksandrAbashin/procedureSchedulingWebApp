@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.dto;
+package com.firstline.dto;
 
 import javax.validation.constraints.NotEmpty;
 

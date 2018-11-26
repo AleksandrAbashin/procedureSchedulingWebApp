@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.parser;
+package com.firstline.parser;
 
 import java.io.IOException;
 import java.util.List;

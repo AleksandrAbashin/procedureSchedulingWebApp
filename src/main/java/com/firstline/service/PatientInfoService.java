@@ -1,6 +1,6 @@
-package com.firstline.procedure.scheduling.service;
+package com.firstline.service;
 
-import com.firstline.procedure.scheduling.domain.PatientInfo;
+import com.firstline.domain.PatientInfo;
 
 public interface PatientInfoService {
     public PatientInfo createPatientInfo(PatientInfo patientInfo);

@@ -1,8 +1,8 @@
-package com.firstline.procedure.scheduling.parser.impl;
+package com.firstline.parser.impl;
 
-import com.firstline.procedure.scheduling.domain.PatientInfo;
-import com.firstline.procedure.scheduling.parser.ExcelService;
-import com.firstline.procedure.scheduling.repos.PatientInfoRepository;
+import com.firstline.domain.PatientInfo;
+import com.firstline.parser.ExcelService;
+import com.firstline.repos.PatientInfoRepository;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;

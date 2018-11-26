@@ -1,6 +1,6 @@
-package com.firstline.procedure.scheduling.domain;
+package com.firstline.domain;
 
-import com.firstline.procedure.scheduling.domain.enums.Sex;
+import com.firstline.domain.enums.Sex;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;

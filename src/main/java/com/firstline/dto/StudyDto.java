@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.dto;
+package com.firstline.dto;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

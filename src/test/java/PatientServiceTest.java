@@ -1,13 +1,13 @@
-import com.firstline.procedure.scheduling.configs.DataBaseConfig;
-import com.firstline.procedure.scheduling.configs.WebMvcConfiguration;
-import com.firstline.procedure.scheduling.domain.Patient;
-import com.firstline.procedure.scheduling.domain.enums.Sex;
-import com.firstline.procedure.scheduling.dto.PatientDto;
-import com.firstline.procedure.scheduling.mapper.PatientMapper;
-import com.firstline.procedure.scheduling.mapper.StudyMapper;
-import com.firstline.procedure.scheduling.repos.PatientRepository;
-import com.firstline.procedure.scheduling.repos.StudyRepository;
-import com.firstline.procedure.scheduling.service.PatientService;
+import com.firstline.configs.DataBaseConfig;
+import com.firstline.configs.MvcConfiguration;
+import com.firstline.domain.Patient;
+import com.firstline.domain.enums.Sex;
+import com.firstline.dto.PatientDto;
+import com.firstline.mapper.PatientMapper;
+import com.firstline.mapper.StudyMapper;
+import com.firstline.repos.PatientRepository;
+import com.firstline.repos.StudyRepository;
+import com.firstline.service.PatientService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {DataBaseConfig.class,
-        WebMvcConfiguration.class})
+        MvcConfiguration.class})
 @WebAppConfiguration
 public class PatientServiceTest extends Assert {
     @Autowired

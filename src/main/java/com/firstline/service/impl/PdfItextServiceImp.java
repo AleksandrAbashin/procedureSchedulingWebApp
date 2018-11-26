@@ -1,9 +1,9 @@
-package com.firstline.procedure.scheduling.service.impl;
+package com.firstline.service.impl;
 
-import com.firstline.procedure.scheduling.domain.PatientInfo;
-import com.firstline.procedure.scheduling.repos.PatientInfoRepository;
-import com.firstline.procedure.scheduling.repos.PatientRepository;
-import com.firstline.procedure.scheduling.service.PdfService;
+import com.firstline.domain.PatientInfo;
+import com.firstline.repos.PatientInfoRepository;
+import com.firstline.repos.PatientRepository;
+import com.firstline.service.PdfService;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;

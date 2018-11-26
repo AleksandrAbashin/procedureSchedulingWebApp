@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.configs;
+package com.firstline.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -15,7 +15,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @Configuration
 @EnableScheduling
 @EnableWebMvc
-@ComponentScan(basePackages = "com.firstline.procedure.scheduling")
+@ComponentScan(basePackages = "com.firstline")
 public class MvcConfiguration implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;

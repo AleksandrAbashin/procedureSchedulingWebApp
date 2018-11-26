@@ -1,7 +1,7 @@
-package com.firstline.procedure.scheduling.controller;
+package com.firstline.controller;
 
-import com.firstline.procedure.scheduling.dto.PatientDto;
-import com.firstline.procedure.scheduling.service.PatientService;
+import com.firstline.dto.PatientDto;
+import com.firstline.service.PatientService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

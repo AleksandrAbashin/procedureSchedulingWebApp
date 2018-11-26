@@ -1,8 +1,8 @@
-package com.firstline.procedure.scheduling.controller;
+package com.firstline.controller;
 
-import com.firstline.procedure.scheduling.dto.StudyDto;
-import com.firstline.procedure.scheduling.service.PatientService;
-import com.firstline.procedure.scheduling.service.StudyService;
+import com.firstline.dto.StudyDto;
+import com.firstline.service.PatientService;
+import com.firstline.service.StudyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

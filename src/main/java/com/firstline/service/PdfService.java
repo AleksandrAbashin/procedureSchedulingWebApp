@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.service;
+package com.firstline.service;
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;

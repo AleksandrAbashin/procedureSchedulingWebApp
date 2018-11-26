@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.domain.enums;
+package com.firstline.domain.enums;
 
 public enum Status {
     PLANNED(1), IN_PROGRESS(2), FINISHED(3);

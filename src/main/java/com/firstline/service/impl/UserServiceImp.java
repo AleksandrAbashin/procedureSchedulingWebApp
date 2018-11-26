@@ -1,10 +1,10 @@
-package com.firstline.procedure.scheduling.service.impl;
+package com.firstline.service.impl;
 
-import com.firstline.procedure.scheduling.domain.User;
-import com.firstline.procedure.scheduling.dto.UserDto;
-import com.firstline.procedure.scheduling.mapper.UserMapper;
-import com.firstline.procedure.scheduling.repos.UserRepository;
-import com.firstline.procedure.scheduling.service.UserService;
+import com.firstline.domain.User;
+import com.firstline.dto.UserDto;
+import com.firstline.mapper.UserMapper;
+import com.firstline.repos.UserRepository;
+import com.firstline.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;

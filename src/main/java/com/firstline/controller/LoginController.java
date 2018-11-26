@@ -1,6 +1,6 @@
-package com.firstline.procedure.scheduling.controller;
+package com.firstline.controller;
 
-import com.firstline.procedure.scheduling.dto.PatientDto;
+import com.firstline.dto.PatientDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ResolvableType;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;

@@ -1,6 +1,6 @@
-package com.firstline.procedure.scheduling.service.impl;
+package com.firstline.service.impl;
 
-import com.firstline.procedure.scheduling.domain.User;
+import com.firstline.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

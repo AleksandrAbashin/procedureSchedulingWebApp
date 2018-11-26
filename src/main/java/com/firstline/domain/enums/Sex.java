@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.domain.enums;
+package com.firstline.domain.enums;
 
 public enum Sex {
     MALE(1), FEMALE(2);

@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.configs;
+package com.firstline.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories({"com.firstline.procedure.scheduling.repos"})
+@EnableJpaRepositories({"com.firstline.repos"})
 @PropertySource(value = {"classpath:application.properties"})
 public class DataBaseConfig {
 
@@ -29,7 +29,7 @@ public class DataBaseConfig {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.firstline.procedure.scheduling.domain");
+        em.setPackagesToScan("com.firstline.domain");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

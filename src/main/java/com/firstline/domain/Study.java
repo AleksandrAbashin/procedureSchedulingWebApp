@@ -1,6 +1,6 @@
-package com.firstline.procedure.scheduling.domain;
+package com.firstline.domain;
 
-import com.firstline.procedure.scheduling.domain.enums.Status;
+import com.firstline.domain.enums.Status;
 
 import javax.persistence.*;
 import java.time.LocalDate;

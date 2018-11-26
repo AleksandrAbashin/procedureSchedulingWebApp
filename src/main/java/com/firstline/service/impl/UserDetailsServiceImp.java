@@ -1,7 +1,7 @@
-package com.firstline.procedure.scheduling.service.impl;
+package com.firstline.service.impl;
 
-import com.firstline.procedure.scheduling.domain.User;
-import com.firstline.procedure.scheduling.repos.UserRepository;
+import com.firstline.domain.User;
+import com.firstline.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.exception;
+package com.firstline.exception;
 
 
 import org.springframework.http.HttpStatus;

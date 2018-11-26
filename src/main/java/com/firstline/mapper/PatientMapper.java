@@ -1,7 +1,7 @@
-package com.firstline.procedure.scheduling.mapper;
+package com.firstline.mapper;
 
-import com.firstline.procedure.scheduling.domain.Patient;
-import com.firstline.procedure.scheduling.dto.PatientDto;
+import com.firstline.dto.PatientDto;
+import com.firstline.domain.Patient;
 import org.mapstruct.Mapper;
 
 import java.util.List;

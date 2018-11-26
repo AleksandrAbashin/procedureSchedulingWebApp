@@ -1,8 +1,8 @@
-package com.firstline.procedure.scheduling.service;
+package com.firstline.service;
 
-import com.firstline.procedure.scheduling.domain.PatientInfo;
-import com.firstline.procedure.scheduling.dto.PatientDto;
-import com.firstline.procedure.scheduling.dto.StudyDto;
+import com.firstline.domain.PatientInfo;
+import com.firstline.dto.PatientDto;
+import com.firstline.dto.StudyDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

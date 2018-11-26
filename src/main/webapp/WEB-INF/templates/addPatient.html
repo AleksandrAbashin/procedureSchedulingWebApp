@@ -25,7 +25,7 @@
 <body>
 <div class="container mt-5">
     <h1>Add new patient</h1>
-    <!--/*@thymesVar id="patientDto" type="com.firstline.procedure.scheduling.dto.PatientDto"*/-->
+    <!--/*@thymesVar id="patientDto" type="com.firstline.dto.PatientDto"*/-->
     <form action="#" th:action="@{/patient}" th:object="${patientDto}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <tr>

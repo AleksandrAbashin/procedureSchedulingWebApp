@@ -1,8 +1,8 @@
-package com.firstline.procedure.scheduling.service.impl;
+package com.firstline.service.impl;
 
-import com.firstline.procedure.scheduling.domain.PatientInfo;
-import com.firstline.procedure.scheduling.repos.PatientInfoRepository;
-import com.firstline.procedure.scheduling.service.PatientInfoService;
+import com.firstline.domain.PatientInfo;
+import com.firstline.repos.PatientInfoRepository;
+import com.firstline.service.PatientInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

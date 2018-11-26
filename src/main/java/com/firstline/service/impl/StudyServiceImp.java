@@ -1,12 +1,12 @@
-package com.firstline.procedure.scheduling.service.impl;
+package com.firstline.service.impl;
 
-import com.firstline.procedure.scheduling.exception.ThereIsNoSuchPatientException;
-import com.firstline.procedure.scheduling.domain.Study;
-import com.firstline.procedure.scheduling.dto.StudyDto;
-import com.firstline.procedure.scheduling.mapper.StudyMapper;
-import com.firstline.procedure.scheduling.repos.PatientRepository;
-import com.firstline.procedure.scheduling.repos.StudyRepository;
-import com.firstline.procedure.scheduling.service.StudyService;
+import com.firstline.dto.StudyDto;
+import com.firstline.exception.ThereIsNoSuchPatientException;
+import com.firstline.mapper.StudyMapper;
+import com.firstline.domain.Study;
+import com.firstline.repos.PatientRepository;
+import com.firstline.repos.StudyRepository;
+import com.firstline.service.StudyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

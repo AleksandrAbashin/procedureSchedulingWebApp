@@ -1,7 +1,7 @@
-package com.firstline.procedure.scheduling.service;
+package com.firstline.service;
 
-import com.firstline.procedure.scheduling.domain.User;
-import com.firstline.procedure.scheduling.dto.UserDto;
+import com.firstline.domain.User;
+import com.firstline.dto.UserDto;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public interface UserService {

@@ -1,6 +1,6 @@
-package com.firstline.procedure.scheduling.repos;
+package com.firstline.repos;
 
-import com.firstline.procedure.scheduling.domain.Study;
+import com.firstline.domain.Study;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

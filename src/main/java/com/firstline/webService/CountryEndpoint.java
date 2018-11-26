@@ -1,8 +1,8 @@
-package com.firstline.procedure.scheduling.webService;
+package com.firstline.webService;
 
-import com.firstline.procedure.scheduling.soap.CountryRepository;
-import com.firstline.procedure.scheduling.soap.GetCountryRequest;
-import com.firstline.procedure.scheduling.soap.GetCountryResponse;
+import com.firstline.soap.CountryRepository;
+import com.firstline.soap.GetCountryRequest;
+import com.firstline.soap.GetCountryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -11,7 +11,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class CountryEndpoint {
-    private static final String NAMESPACE_URI = "http://firstline.com/procedure/scheduling/soap";
+    private static final String NAMESPACE_URI = "http://firstline.com/procedure/soap";
 
     private CountryRepository countryRepository;
 

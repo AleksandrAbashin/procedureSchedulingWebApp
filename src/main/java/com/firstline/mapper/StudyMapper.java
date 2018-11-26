@@ -1,7 +1,7 @@
-package com.firstline.procedure.scheduling.mapper;
+package com.firstline.mapper;
 
-import com.firstline.procedure.scheduling.domain.Study;
-import com.firstline.procedure.scheduling.dto.StudyDto;
+import com.firstline.dto.StudyDto;
+import com.firstline.domain.Study;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

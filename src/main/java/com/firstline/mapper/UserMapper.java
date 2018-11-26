@@ -1,8 +1,8 @@
-package com.firstline.procedure.scheduling.mapper;
+package com.firstline.mapper;
 
 
-import com.firstline.procedure.scheduling.domain.User;
-import com.firstline.procedure.scheduling.dto.UserDto;
+import com.firstline.domain.User;
+import com.firstline.dto.UserDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

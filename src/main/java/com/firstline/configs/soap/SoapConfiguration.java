@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.configs.soap;
+package com.firstline.configs.soap;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,6 +9,7 @@ import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
+
 
 @EnableWs
 @Configuration
@@ -23,7 +24,7 @@ public class SoapConfiguration extends WsConfigurerAdapter {
 
         wsdl11Definition.setPortTypeName("CountriesPort");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("http://firstline.com/procedure/scheduling/soap");
+        wsdl11Definition.setTargetNamespace("http://firstline.com");
 
         return wsdl11Definition;
     }

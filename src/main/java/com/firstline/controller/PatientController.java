@@ -1,13 +1,13 @@
-package com.firstline.procedure.scheduling.controller;
+package com.firstline.controller;
 
-import com.firstline.procedure.scheduling.domain.PatientInfo;
-import com.firstline.procedure.scheduling.dto.PatientDto;
-import com.firstline.procedure.scheduling.dto.StudyDto;
-import com.firstline.procedure.scheduling.parser.DocService;
-import com.firstline.procedure.scheduling.parser.ExcelService;
-import com.firstline.procedure.scheduling.service.PatientService;
-import com.firstline.procedure.scheduling.service.PdfService;
-import com.firstline.procedure.scheduling.service.impl.ServiceParser;
+import com.firstline.domain.PatientInfo;
+import com.firstline.dto.PatientDto;
+import com.firstline.dto.StudyDto;
+import com.firstline.parser.DocService;
+import com.firstline.parser.ExcelService;
+import com.firstline.service.PatientService;
+import com.firstline.service.PdfService;
+import com.firstline.service.impl.ServiceParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;

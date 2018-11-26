@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.configs;
+package com.firstline.configs;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

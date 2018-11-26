@@ -1,8 +1,8 @@
-package com.firstline.procedure.scheduling.controller;
+package com.firstline.controller;
 
-import com.firstline.procedure.scheduling.domain.User;
-import com.firstline.procedure.scheduling.dto.UserDto;
-import com.firstline.procedure.scheduling.service.UserService;
+import com.firstline.domain.User;
+import com.firstline.dto.UserDto;
+import com.firstline.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

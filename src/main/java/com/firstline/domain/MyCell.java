@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.domain;
+package com.firstline.domain;
 
 public class MyCell {
     private String content;

@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.domain;
+package com.firstline.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

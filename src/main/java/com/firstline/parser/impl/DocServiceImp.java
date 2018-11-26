@@ -1,6 +1,6 @@
-package com.firstline.procedure.scheduling.parser.impl;
+package com.firstline.parser.impl;
 
-import com.firstline.procedure.scheduling.parser.DocService;
+import com.firstline.parser.DocService;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.xwpf.usermodel.IBodyElement;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;

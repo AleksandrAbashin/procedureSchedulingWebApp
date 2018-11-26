@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.converter;
+package com.firstline.converter;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

@@ -1,6 +1,6 @@
-package com.firstline.procedure.scheduling.parser;
+package com.firstline.parser;
 
-import com.firstline.procedure.scheduling.domain.PatientInfo;
+import com.firstline.domain.PatientInfo;
 
 import java.io.IOException;
 import java.util.List;

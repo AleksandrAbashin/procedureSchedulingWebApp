@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.mapper;
+package com.firstline.mapper;
 
 public interface DoctorMapper {
 }

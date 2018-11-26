@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.repos;
+package com.firstline.repos;
 
 public class CountryRepository {
 }

@@ -1,4 +1,4 @@
-package com.firstline.procedure.scheduling.controller;
+package com.firstline.controller;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

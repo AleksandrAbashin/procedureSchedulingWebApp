@@ -1,7 +1,7 @@
-package com.firstline.procedure.scheduling.service;
+package com.firstline.service;
 
 
-import com.firstline.procedure.scheduling.dto.StudyDto;
+import com.firstline.dto.StudyDto;
 
 public interface StudyService {
 

@@ -1,14 +1,14 @@
-package com.firstline.procedure.scheduling.service.impl;
+package com.firstline.service.impl;
 
-import com.firstline.procedure.scheduling.domain.PatientInfo;
-import com.firstline.procedure.scheduling.exception.ThereIsNoSuchPatientNameException;
-import com.firstline.procedure.scheduling.domain.Patient;
-import com.firstline.procedure.scheduling.dto.PatientDto;
-import com.firstline.procedure.scheduling.dto.StudyDto;
-import com.firstline.procedure.scheduling.mapper.PatientMapper;
-import com.firstline.procedure.scheduling.mapper.StudyMapper;
-import com.firstline.procedure.scheduling.repos.PatientRepository;
-import com.firstline.procedure.scheduling.service.PatientService;
+import com.firstline.domain.PatientInfo;
+import com.firstline.exception.ThereIsNoSuchPatientNameException;
+import com.firstline.domain.Patient;
+import com.firstline.dto.PatientDto;
+import com.firstline.dto.StudyDto;
+import com.firstline.mapper.PatientMapper;
+import com.firstline.mapper.StudyMapper;
+import com.firstline.repos.PatientRepository;
+import com.firstline.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
