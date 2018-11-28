@@ -1,6 +1,6 @@
 package com.firstline.controller;
 
-import com.firstline.dto.PatientDto;
+import com.firstline.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ResolvableType;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
@@ -10,10 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,11 +30,11 @@ public class LoginController {
 
     @GetMapping("/login")
     public String loginPage(Model model) {
-        model.addAttribute("patientDto", new PatientDto());
+        model.addAttribute("user", new User());
         return "login";
     }
     @PostMapping("/login")
-    public String createPatient(@ModelAttribute @Valid PatientDto patientDto, BindingResult bindingResult) {
+    public String createPatient( BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "login";
         }

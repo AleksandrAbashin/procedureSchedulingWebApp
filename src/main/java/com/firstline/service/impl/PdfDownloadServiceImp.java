@@ -19,8 +19,13 @@ public class PdfDownloadServiceImp implements PdfDownloadService {
     @Value("${upload.path}")
     private String uploadPath;
 
-    @Autowired
+    final
     PatientRepository patientRepository;
+
+    @Autowired
+    public PdfDownloadServiceImp(PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
+    }
 
     @Override
     public ResponseEntity<InputStreamResource> download(Long id, Pdf pdf) throws IOException {

@@ -19,6 +19,13 @@ public class PatientRestController {
         this.patientService = patientService;
     }
 
+    @GetMapping("/{id}")
+    public String list(@PathVariable Long id) {
+
+        return patientService.getListStudiesOfPatient(id).toString();
+       // return patientService.findAllPatient().toString();
+    }
+
     @ApiOperation(value = "return list patients")
     @GetMapping("/list")
     public List<PatientDto> getListApplication() {

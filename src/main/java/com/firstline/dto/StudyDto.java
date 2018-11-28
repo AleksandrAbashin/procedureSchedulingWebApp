@@ -35,6 +35,10 @@ public class StudyDto {
     public StudyDto() {
 
     }
+    @Override
+    public String toString() {
+        return description + " " + status;
+    }
 
     public StudyDto(Long id, String description, String status, Long patientId) {
         this.id = id;

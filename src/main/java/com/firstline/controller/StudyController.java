@@ -11,10 +11,15 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/study")
 public class StudyController {
+
+    private final StudyService studyService;
+    private final PatientService patientService;
+
     @Autowired
-    private StudyService studyService;
-    @Autowired
-    private PatientService patientService;
+    public StudyController(StudyService studyService, PatientService patientService) {
+        this.studyService = studyService;
+        this.patientService = patientService;
+    }
 
     @GetMapping
     public String editorPage(Model model) {

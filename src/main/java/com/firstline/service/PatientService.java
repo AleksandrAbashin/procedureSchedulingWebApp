@@ -1,6 +1,8 @@
 package com.firstline.service;
 
+import com.firstline.domain.Patient;
 import com.firstline.domain.PatientInfo;
+import com.firstline.domain.Study;
 import com.firstline.dto.PatientDto;
 import com.firstline.dto.StudyDto;
 import org.springframework.data.domain.Page;
@@ -20,6 +22,8 @@ public interface PatientService {
 
     List<PatientDto> getAllPatients();
 
+    List<Study> getListStudiesByPatientId(Long id);
+
     List<StudyDto> getListStudiesOfPatient(Long id);
 
     Page<PatientDto> paginatedList(Pageable pageable);
@@ -27,4 +31,8 @@ public interface PatientService {
     Page<PatientDto> pagination(Pageable pageable);
 
     PatientInfo getPatientInfoByPatientId(Long id);
+
+    Patient getByName (String name);
+
+    List<Patient> findAllPatient();
 }

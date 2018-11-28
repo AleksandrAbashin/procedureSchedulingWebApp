@@ -1,7 +1,6 @@
 package com.firstline.configs.soap;
 
-import org.springframework.ws.transport.http.support.AbstractAnnotationConfigMessageDispatcherServletInitializer;
-
+/*
 
 public class SoapInitializer extends
         AbstractAnnotationConfigMessageDispatcherServletInitializer {
@@ -28,4 +27,4 @@ public class SoapInitializer extends
     }
 
 
-}
+}*/

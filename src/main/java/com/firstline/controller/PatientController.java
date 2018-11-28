@@ -43,19 +43,25 @@ public class PatientController {
 
     private final PatientService patientService;
 
-    final ServiceParser serviceParser;
+    private final ServiceParser serviceParser;
 
-    final ExcelService excelService;
+    private final ExcelService excelService;
 
     private final PdfService pdfService;
 
+    private final DocService docService;
+
     @Autowired
-    public PatientController(PatientService patientService, ServiceParser serviceParser, ExcelService excelService, @Qualifier("pdfBox") PdfService pdfService) {
+    public PatientController(PatientService patientService, ServiceParser serviceParser, ExcelService excelService, @Qualifier("pdfBox") PdfService pdfService, DocService docService) {
         this.patientService = patientService;
         this.serviceParser = serviceParser;
         this.excelService = excelService;
         this.pdfService = pdfService;
+        this.docService = docService;
+
     }
+
+
 
     @GetMapping("/pdf/{id}")
     public ResponseEntity<InputStreamResource> getTime(@PathVariable Long id) {
@@ -91,9 +97,6 @@ public class PatientController {
         return "addPatient";
     }
 
-    @Autowired
-    DocService docService;
-
     @GetMapping("/readDoc")
     public String readDoc(Model model) throws IOException {
 
@@ -104,7 +107,6 @@ public class PatientController {
         return "doc";
 
     }
-
 
     @GetMapping("/readPOI/{id}")
     public String readPOI(Model model, @PathVariable Long id) {

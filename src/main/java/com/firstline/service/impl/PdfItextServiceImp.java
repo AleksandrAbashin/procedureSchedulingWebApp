@@ -2,7 +2,6 @@ package com.firstline.service.impl;
 
 import com.firstline.domain.PatientInfo;
 import com.firstline.repos.PatientInfoRepository;
-import com.firstline.repos.PatientRepository;
 import com.firstline.service.PdfDownloadService;
 import com.firstline.service.PdfService;
 import com.itextpdf.text.Document;
@@ -35,15 +34,12 @@ public class PdfItextServiceImp implements PdfService {
 
     private final PatientInfoRepository patientInfoRepository;
 
-    private final PatientRepository patientRepository;
+    private final PdfDownloadService pdfDownloadService;
 
     @Autowired
-    PdfDownloadService pdfDownloadService;
-
-    @Autowired
-    public PdfItextServiceImp(PatientInfoRepository patientInfoRepository, PatientRepository patientRepository) {
+    public PdfItextServiceImp(PatientInfoRepository patientInfoRepository, PdfDownloadService pdfDownloadService) {
         this.patientInfoRepository = patientInfoRepository;
-        this.patientRepository = patientRepository;
+        this.pdfDownloadService = pdfDownloadService;
     }
 
     @Override

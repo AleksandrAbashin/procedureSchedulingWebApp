@@ -1,10 +1,11 @@
 package com.firstline.service.impl;
 
-import com.firstline.domain.PatientInfo;
-import com.firstline.exception.ThereIsNoSuchPatientNameException;
 import com.firstline.domain.Patient;
+import com.firstline.domain.PatientInfo;
+import com.firstline.domain.Study;
 import com.firstline.dto.PatientDto;
 import com.firstline.dto.StudyDto;
+import com.firstline.exception.ThereIsNoSuchPatientNameException;
 import com.firstline.mapper.PatientMapper;
 import com.firstline.mapper.StudyMapper;
 import com.firstline.repos.PatientRepository;
@@ -23,20 +24,37 @@ import java.util.List;
 @Service
 public class PatientServiceImp implements PatientService {
 
-    @Autowired
-    private PatientRepository patientRepository;
+    private final PatientRepository patientRepository;
+
+    private final PatientMapper patientMapper;
+
+    private final StudyMapper studyMapper;
 
     @Autowired
-    private PatientMapper patientMapper;
+    public PatientServiceImp(PatientRepository patientRepository, PatientMapper patientMapper, StudyMapper studyMapper) {
+        this.patientRepository = patientRepository;
+        this.patientMapper = patientMapper;
+        this.studyMapper = studyMapper;
+    }
 
-    @Autowired
-    private StudyMapper studyMapper;
+    @Override
+    @Transactional
+    public Patient getByName(String name) {
+        return patientRepository.findByName(name);
+    }
+
+    @Override
+  //  @Transactional
+    public List<Study> getListStudiesByPatientId(Long id) {
+        return patientRepository.getListStudyByPatientId(id);
+    }
 
     @Override
     @Transactional
     public Page<PatientDto> paginatedList(Pageable pageable) {
-        List<PatientDto> patients = patientMapper.fromListPatient(patientRepository.findAll());
-
+        List<PatientDto> patients = patientMapper
+                .fromListPatient(patientRepository.findAllPatient());
+              /*  .fromListPatient(patientRepository.findAll());*/
         int pageSize = pageable.getPageSize();
         int currentPage = pageable.getPageNumber();
         int startItem = currentPage * pageSize;
@@ -102,6 +120,11 @@ public class PatientServiceImp implements PatientService {
     @Transactional
     public List<PatientDto> getAllPatients() {
         return patientMapper.fromListPatient(patientRepository.findAll());
+    }
+
+    @Override
+    public List<Patient> findAllPatient() {
+        return patientRepository.findAllPatient();
     }
 
     @Override

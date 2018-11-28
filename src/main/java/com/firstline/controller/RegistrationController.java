@@ -19,8 +19,12 @@ import java.util.Map;
 public class RegistrationController {
 
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public RegistrationController(UserService userService) {
+        this.userService = userService;
+    }
 
 
     @GetMapping

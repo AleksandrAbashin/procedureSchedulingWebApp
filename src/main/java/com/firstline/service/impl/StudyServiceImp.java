@@ -13,13 +13,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudyServiceImp implements StudyService {
 
-    @Autowired
-    private StudyRepository studyRepository;
-    @Autowired
-    private PatientRepository patientRepository;
+    private final StudyRepository studyRepository;
+    private final PatientRepository patientRepository;
+
+    private final StudyMapper studyMapper;
 
     @Autowired
-    private StudyMapper studyMapper;
+    public StudyServiceImp(StudyRepository studyRepository, PatientRepository patientRepository, StudyMapper studyMapper) {
+        this.studyRepository = studyRepository;
+        this.patientRepository = patientRepository;
+        this.studyMapper = studyMapper;
+    }
 
     @Override
     public StudyDto createStudy(StudyDto studyDto) {

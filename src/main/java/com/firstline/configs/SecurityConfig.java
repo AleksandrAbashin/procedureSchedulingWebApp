@@ -25,6 +25,7 @@ import org.springframework.security.oauth2.client.registration.InMemoryClientReg
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
 import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +33,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Configuration
-//@Transactional
+@Transactional
 @PropertySource("classpath:application.properties")
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

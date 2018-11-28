@@ -35,6 +35,7 @@ public class Study {
 
     }
 
+
     public Long getId() {
         return id;
     }

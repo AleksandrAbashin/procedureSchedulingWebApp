@@ -15,7 +15,7 @@ public class PatientInfo {
 
     private String fileName;
 
-    @OneToOne(mappedBy = "patientInfo")
+    @OneToOne(mappedBy = "patientInfo", fetch = FetchType.LAZY)
     private Patient patient;
 
 

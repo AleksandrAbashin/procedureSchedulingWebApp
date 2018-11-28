@@ -23,11 +23,15 @@ public class ServiceParser {
 
     private String fileLocation;
 
-    @Autowired
-    PatientService patientService;
+    private final PatientService patientService;
+
+    private final PatientRepository patientRepository;
 
     @Autowired
-    PatientRepository patientRepository;
+    public ServiceParser(PatientService patientService, PatientRepository patientRepository) {
+        this.patientService = patientService;
+        this.patientRepository = patientRepository;
+    }
 
     @Transactional
     public void saveExcelFile(PatientDto patientDto, MultipartFile file) throws IOException {

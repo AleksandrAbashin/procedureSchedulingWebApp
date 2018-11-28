@@ -31,17 +31,17 @@ public class PdfBoxServiceImp implements PdfService {
     @Value("${upload.path}")
     private String uploadPath;
 
-    final PatientInfoRepository patientInfoRepository;
+    private final PatientInfoRepository patientInfoRepository;
 
-    final PatientRepository patientRepository;
+    private PatientRepository patientRepository;
+
+    private PdfDownloadService pdfDownloadService;
 
     @Autowired
-    PdfDownloadService pdfDownloadService;
-
-    @Autowired
-    public PdfBoxServiceImp(PatientInfoRepository patientInfoRepository, PatientRepository patientRepository) {
+    public PdfBoxServiceImp(PatientInfoRepository patientInfoRepository, PatientRepository patientRepository, PdfDownloadService pdfDownloadService) {
         this.patientInfoRepository = patientInfoRepository;
         this.patientRepository = patientRepository;
+        this.pdfDownloadService = pdfDownloadService;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class PdfBoxServiceImp implements PdfService {
                 PDType1Font font = PDType1Font.COURIER;
                 contentStream.setFont(font, FontSize);
                 contentStream.beginText();
-                contentStream.newLineAtOffset(SheetOffsetX, SheetOffsetX);
+                contentStream.newLineAtOffset(SheetOffsetX, SheetOffsetY);
 
                 Iterator<Row> rowIterator = myWorksheet.iterator();
                 while (rowIterator.hasNext()) {

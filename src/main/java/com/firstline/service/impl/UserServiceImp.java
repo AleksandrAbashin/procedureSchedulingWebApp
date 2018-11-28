@@ -13,14 +13,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImp implements UserService {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+
+    private final UserRepository userRepository;
+
+    private final UserMapper userMapper;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private UserMapper userMapper;
+    public UserServiceImp(PasswordEncoder passwordEncoder, UserRepository userRepository, UserMapper userMapper) {
+        this.passwordEncoder = passwordEncoder;
+        this.userRepository = userRepository;
+        this.userMapper = userMapper;
+    }
 
     @Override
     public User findUserByName(String name) {

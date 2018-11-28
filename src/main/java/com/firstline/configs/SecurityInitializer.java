@@ -1,14 +1,9 @@
 package com.firstline.configs;
 
 
-/*
-public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer  {
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
-    @Override
-    protected void beforeSpringSecurityFilterChain(ServletContext servletContext) {
-        insertFilters(servletContext, new MultipartFilter());
-    }
+public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
 
 }
 
-*/

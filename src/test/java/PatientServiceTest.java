@@ -107,4 +107,19 @@ public class PatientServiceTest extends Assert {
         Assert.assertEquals(patientPageExpect.getContent().get(0).getPatientName()
                 , patientPageActual.getContent().get(0).getPatientName());
     }
+
+    @Test
+    @Transactional
+    public void findAllPatientTest() {
+        List<PatientDto> patients = patientMapper
+                .fromListPatient(patientRepository.findAllPatient());
+
+    }
+
+    @Test
+    @Transactional
+    public void findAllTest() {
+        List<PatientDto> patients = patientMapper
+          .fromListPatient(patientRepository.findAll());
+    }
 }

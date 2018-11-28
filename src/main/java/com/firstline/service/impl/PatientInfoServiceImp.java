@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class PatientInfoServiceImp implements PatientInfoService {
 
+    private final PatientInfoRepository patientInfoRepository;
+
     @Autowired
-    private PatientInfoRepository patientInfoRepository;
+    public PatientInfoServiceImp(PatientInfoRepository patientInfoRepository) {
+        this.patientInfoRepository = patientInfoRepository;
+    }
 
     @Override
     public PatientInfo createPatientInfo(PatientInfo patientInfo) {
