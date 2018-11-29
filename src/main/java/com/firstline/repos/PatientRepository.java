@@ -2,6 +2,7 @@ package com.firstline.repos;
 
 import com.firstline.domain.Patient;
 import com.firstline.domain.Study;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,4 +22,19 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
 
     @Query(value = "SELECT p FROM Patient p WHERE p.patientName = :name")
     Patient findByName(@Param("name") String patientName);
+
+    @EntityGraph("patient.studies")
+    Patient findOneById(Long id);
+
+    @EntityGraph(attributePaths = "studies")
+    Patient getOneById(Long id);
+
+
+   /* @EntityGraph("patient.studies")
+    List<Patient> findAll();*/
+
+    @Query(value = "SELECT p FROM Patient p JOIN FETCH p.studies JOIN FETCH p.patientInfo")
+    List<Patient> findAllPatientSubSelect();
+
+
 }

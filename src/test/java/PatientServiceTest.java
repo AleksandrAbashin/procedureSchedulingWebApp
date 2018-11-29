@@ -116,10 +116,31 @@ public class PatientServiceTest extends Assert {
 
     }
 
+
+
+    @Test
+    @Transactional
+    public void findByName() {
+        Patient patient = patientRepository.findByName("Tomy");
+    }
+
+    @Test
+    @Transactional
+    public void getListStudiesOfPatient() {
+        studyMapper.fromListStudy(patientRepository.getById(1l).getStudies());
+    }
+
+
+    @Test
+    @Transactional
+    public void findAllEntityGraph() {
+        patientRepository.findAll();
+    }
+
     @Test
     @Transactional
     public void findAllTest() {
         List<PatientDto> patients = patientMapper
-          .fromListPatient(patientRepository.findAll());
+                .fromListPatient(patientRepository.findAll());
     }
 }

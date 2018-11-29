@@ -9,14 +9,28 @@ import java.util.List;
 
 @Entity
 @Table(name = "patients")
+/*@NamedEntityGraph(name = "patient.studies",
+        attributeNodes = {
+                @NamedAttributeNode(value = "studies", subgraph = "studies.list")
+        },
+        subgraphs = {
+                @NamedSubgraph(name = "studies.list", attributeNodes = @NamedAttributeNode("study"))
+        }
+)*/
+@NamedEntityGraph(name = "patient.studies", attributeNodes = {
+        @NamedAttributeNode("patientName"),
+        @NamedAttributeNode("patientSex"),
+        @NamedAttributeNode("patientDateBirth"),
+        @NamedAttributeNode("patientInfo"),
+        @NamedAttributeNode("studies")})
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @Size(min=2, max=10)
-    @Column(name = "patient_name",nullable=false)
+    @Size(min = 2, max = 10)
+    @Column(name = "patient_name", nullable = false)
     private String patientName;
 
     @Enumerated(EnumType.STRING)
@@ -33,7 +47,7 @@ public class Patient {
     private List<Study> studies;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="patientinfo_id")
+    @JoinColumn(name = "patientinfo_id")
     private PatientInfo patientInfo;
 
     public Patient() {
