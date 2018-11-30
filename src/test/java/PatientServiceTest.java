@@ -140,7 +140,6 @@ public class PatientServiceTest extends Assert {
     @Test
     @Transactional
     public void findAllTest() {
-        List<PatientDto> patients = patientMapper
-                .fromListPatient(patientRepository.findAll());
+       patientRepository.findAll();
     }
 }

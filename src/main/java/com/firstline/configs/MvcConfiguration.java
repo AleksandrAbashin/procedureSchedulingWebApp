@@ -25,6 +25,18 @@ public class MvcConfiguration implements WebMvcConfigurer {
         this.applicationContext = applicationContext;
     }
 
+
+/*    @Bean
+    public TransportClient clientBuilder() throws UnknownHostException {
+      return new PreBuiltTransportClient(Settings.EMPTY)
+                .addTransportAddress(new TransportAddress(InetAddress.getByName("localhost"), 9300));
+    }
+
+    @Bean
+    public ElasticsearchOperations elasticsearchTemplate() throws Exception {
+        return new ElasticsearchTemplate(clientBuilder());
+    }*/
+
     /*
      * STEP 1 - Create SpringResourceTemplateResolver
      * */

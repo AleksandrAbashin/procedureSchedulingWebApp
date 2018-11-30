@@ -19,8 +19,7 @@ public class PdfDownloadServiceImp implements PdfDownloadService {
     @Value("${upload.path}")
     private String uploadPath;
 
-    final
-    PatientRepository patientRepository;
+    private final PatientRepository patientRepository;
 
     @Autowired
     public PdfDownloadServiceImp(PatientRepository patientRepository) {

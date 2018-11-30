@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping(path = "/")
 public class PatientRestController {
 
-    final PatientService patientService;
+    private final PatientService patientService;
 
     @Autowired
     public PatientRestController(PatientService patientService) {
@@ -37,6 +37,5 @@ public class PatientRestController {
     public Long createApplication(@RequestBody PatientDto patientDto) {
         return patientService.createPatient(patientDto);
     }
-
 
 }

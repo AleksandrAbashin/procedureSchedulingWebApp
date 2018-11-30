@@ -30,11 +30,8 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
     Patient getOneById(Long id);
 
 
-   /* @EntityGraph("patient.studies")
-    List<Patient> findAll();*/
-
-    @Query(value = "SELECT p FROM Patient p JOIN FETCH p.studies JOIN FETCH p.patientInfo")
-    List<Patient> findAllPatientSubSelect();
+    @EntityGraph("patient.studies")
+    List<Patient> findAll();
 
 
 }
