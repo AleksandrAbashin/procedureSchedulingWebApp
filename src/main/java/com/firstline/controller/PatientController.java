@@ -144,6 +144,7 @@ public class PatientController {
             model.addAttribute("pageNumbers", pageNumbers);
         }
 
+      //  model.addAttribute("studyDto", new StudyDto());
         return "list";
     }
 

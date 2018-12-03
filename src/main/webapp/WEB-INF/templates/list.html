@@ -74,5 +74,12 @@
     </hr>
 </div>
 
+<!--/*@thymesVar id="studyDto" type="com.firstline.dto.StudyDto"*/-->
+<form action="#" th:action="@{http://localhost:9200/study/studies/_search?q=description:} + ${des} "  method="post">
+
+    <p>description: <input type="text" id="des" name="des"/></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
 </body>
 </html>

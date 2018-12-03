@@ -1,5 +1,7 @@
 package com.firstline.controller;
 
+import com.firstline.service.ElasticService;
+import com.firstline.service.PatientService;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
@@ -24,10 +26,23 @@ public class ElasticController {
 
     private final TransportClient client;
 
+    private PatientService patientService;
+
+    private ElasticService elasticService;
+
     @Autowired
-    public ElasticController(TransportClient client) {
+    public ElasticController(TransportClient client, PatientService patientService, ElasticService elasticService) {
         this.client = client;
+        this.patientService = patientService;
+        this.elasticService = elasticService;
     }
+
+
+    @GetMapping("/{description}")
+    public String searchField(@PathVariable final String description) {
+        return elasticService.search("study",description);
+    }
+
 
 
     @GetMapping("/insert/{id}")
@@ -36,7 +51,7 @@ public class ElasticController {
         IndexResponse response = client.prepareIndex("patients", "id", id)
                 .setSource(jsonBuilder()
                         .startObject()
-                        .field("patientName", "Alex")
+                        .field("patientName", patientService.getPatientById(1l).getPatientName())
                         .field("patientSex", "MALE")
                     //    .field("patientDateBirth", "")
                         .endObject()
@@ -48,7 +63,7 @@ public class ElasticController {
 
     @GetMapping("/view/{id}")
     public Map<String, Object> view(@PathVariable final String id) {
-        GetResponse getResponse = client.prepareGet("patients", "id", id).get();
+        GetResponse getResponse = client.prepareGet("study", "studies", id).get();
         System.out.println(getResponse.getSource());
 
 
