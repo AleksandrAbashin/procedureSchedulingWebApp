@@ -2,6 +2,7 @@ package com.firstline.controller;
 
 import com.firstline.service.ElasticService;
 import com.firstline.service.PatientService;
+import net.minidev.json.JSONObject;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
@@ -38,9 +39,14 @@ public class ElasticController {
     }
 
 
-    @GetMapping("/{description}")
-    public String searchField(@PathVariable final String description) {
-        return elasticService.search("study",description);
+    @GetMapping("search/{description}")
+    public String searchSecond(@PathVariable final String description) {
+        return elasticService.searchSecond("s",description);
+    }
+
+    @GetMapping("analyzed/{description}")
+    public JSONObject analyzedField(@PathVariable final String description) throws Exception {
+        return elasticService.searchByAnalazer("s",description);
     }
 
 
