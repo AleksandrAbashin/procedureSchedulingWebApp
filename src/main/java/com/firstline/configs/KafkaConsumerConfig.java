@@ -1,6 +1,6 @@
 package com.firstline.configs;
 
-import com.firstline.domain.Greeting;
+import com.firstline.dto.PatientDto;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,52 +33,23 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> fooKafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, String> simpleKafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory("foo"));
+        factory.setConsumerFactory(consumerFactory("simple"));
         return factory;
     }
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> barKafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory("bar"));
-        return factory;
-    }
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> headersKafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory("headers"));
-        return factory;
-    }
-
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> partitionsKafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory("partitions"));
-        return factory;
-    }
-
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> filterKafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory("filter"));
-        factory.setRecordFilterStrategy(record -> record.value()
-                .contains("World"));
-        return factory;
-    }
-
-    private ConsumerFactory<String, Greeting> greetingConsumerFactory() {
+    private ConsumerFactory<String, PatientDto> greetingConsumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "greeting");
-        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(Greeting.class));
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "patient");
+        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(PatientDto.class));
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Greeting> greetingKafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, Greeting> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, PatientDto> jsonKafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, PatientDto> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(greetingConsumerFactory());
         return factory;
     }
