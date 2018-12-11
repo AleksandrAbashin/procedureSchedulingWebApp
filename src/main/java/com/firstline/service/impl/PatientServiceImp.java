@@ -53,8 +53,8 @@ public class PatientServiceImp implements PatientService {
     @Transactional
     public Page<PatientDto> paginatedList(Pageable pageable) {
         List<PatientDto> patients = patientMapper
-                .fromListPatient(patientRepository.findAllPatient());
-              /*  .fromListPatient(patientRepository.findAll());*/
+               // .fromListPatient(patientRepository.findAllPatient());
+                .fromListPatient(patientRepository.findAll());
         int pageSize = pageable.getPageSize();
         int currentPage = pageable.getPageNumber();
         int startItem = currentPage * pageSize;

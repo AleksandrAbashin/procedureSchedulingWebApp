@@ -21,11 +21,15 @@ public class LoginController {
     private static final String authorizationRequestBaseUri = "oauth2/authorize-client";
     Map<String, String> oauth2AuthenticationUrls = new HashMap<>();
 
-    @Autowired
-    private ClientRegistrationRepository clientRegistrationRepository;
+    private final ClientRegistrationRepository clientRegistrationRepository;
+
+    private final OAuth2AuthorizedClientService authorizedClientService;
 
     @Autowired
-    private OAuth2AuthorizedClientService authorizedClientService;
+    public LoginController(ClientRegistrationRepository clientRegistrationRepository, OAuth2AuthorizedClientService authorizedClientService) {
+        this.clientRegistrationRepository = clientRegistrationRepository;
+        this.authorizedClientService = authorizedClientService;
+    }
 
 
     @GetMapping("/login")
